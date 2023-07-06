@@ -1,0 +1,17 @@
+<form [formGroup]="registerForm" class="register" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"> Email </label>
+      <input formControlName="email" type="text" class="form-control" id="exampleFormControlInput1">
+      <p *ngIf="(submitted && registerForm?.get('email')?.hasError('required'))">Este campo es requerido</p>
+      <p *ngIf="(submitted && registerForm?.get('email')?.hasError('pattern'))">No cumple el formato de email</p>
+  </div>
+  <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"> Password </label>
+      <input formControlName="password" type="text" class="form-control" id="exampleFormControlInput1">
+      <p *ngIf="(submitted && registerForm?.get('password')?.hasError('required'))">Este campo es requerido</p>
+      <p *ngIf="(submitted && registerForm?.get('password')?.hasError('pattern'))">No cumple el formato de password(1 mayuscula, 1 minuscula, 1 numero y 1 caracter especial)</p>
+  </div>
+  <div class="col-12">
+      <button class="btn btn-primary" type="submit"> Registrar </button>
+  </div>
+</form>

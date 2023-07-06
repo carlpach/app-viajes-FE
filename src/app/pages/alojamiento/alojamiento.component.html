@@ -1,0 +1,11 @@
+<div class="container">
+  <ul class="list">
+      <li class="itemlist" *ngFor="let alojamiento of alojamientosList" routerLink="/alojamientos/{{alojamiento._id}}">
+          <h3>{{alojamiento.Nombre}}</h3>
+          <p>{{alojamiento.Ubicacion}}</p>
+          <p>{{alojamiento.Precio}}€</p>
+          <img src="{{alojamiento.Caratula}}" alt="{{alojamiento.Nombre}}" />
+      </li>
+  </ul>
+  <button routerLink="/addAlojamiento" *ngIf="token">Reservar</button>
+</div>
