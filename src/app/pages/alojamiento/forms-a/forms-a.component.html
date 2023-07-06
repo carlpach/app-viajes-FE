@@ -1,0 +1,49 @@
+<form [formGroup]="alojamientoForm" class="fomulario" (ngSubmit)="editalojamiento()">
+  <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"> Nombre </label>
+      <input formControlName="Nombre" type="text" class="form-control" id="exampleFormControlInput1">
+      <p *ngIf="(submitted && alojamientoForm?.get('Nombre')?.hasError('required'))">Este campo es requerido</p>
+  </div>
+  <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"> Ubicacion </label>
+      <input formControlName="Ubicacion" type="text" class="form-control" id="exampleFormControlInput1">
+      <p *ngIf="(submitted && alojamientoForm?.get('Ubicacion')?.hasError('required'))">Este campo es requerido</p>
+  </div>
+  <div class="col-md-2">
+      <label for="exampleFormControlInput1" class="form-label"> Precio </label>
+      <input formControlName="Precio" type="number" class="form-control" id="exampleFormControlInput1">
+      <p *ngIf="(submitted && alojamientoForm?.get('Precio')?.hasError('required'))">Este campo es requerido</p>
+  </div>
+  <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"> Descripción </label>
+      <textarea formControlName="Descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <p *ngIf="(submitted && alojamientoForm?.get('Descripcion')?.hasError('required'))">Este campo es requerido</p>
+  </div>
+  <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Link Caratula</label>
+      <input formControlName="Caratula" type="text" class="form-control" id="exampleFormControlInput1">
+      <p *ngIf="(submitted && alojamientoForm?.get('Caratula')?.hasError('required'))">Este campo es requerido</p>
+  </div>
+
+  <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"> Link Imagen </label>
+      <input formControlName="Imagen" type="text" class="form-control" id="exampleFormControlInput1">
+  </div>
+  <div class="row g-3" formGroupName = "Actividades">
+    <div formGroupName = "Itinerario">
+      <h6> Actividades </h6>
+      <div class="col">
+        <label>Dia 1</label>
+        <input type="text" class="form-control" formControlName="Dia1"  placeholder="Actividad" aria-label="First name">
+      </div>
+      <div class="col">
+        <label>Dia 2</label>
+        <input type="text" class="form-control" formControlName="Dia2" placeholder="Actividad" aria-label="Last name">
+      </div>
+    </div>
+    </div>
+  <div class="col-12">
+      <button class="btn btn-primary" *ngIf="_id !== ''" type="submit">Editar alojamiento </button>
+      <button class="btn btn-primary" *ngIf="_id === ''" type="submit">Crear alojamiento </button>
+  </div>
+</form>

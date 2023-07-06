@@ -9,6 +9,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ExperienciasComponent } from './pages/experiencias/experiencias.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { InterfacesComponent } from './pages/models/interfaces/interfaces.component';
+import { FormsAComponent } from './pages/alojamiento/forms-a/forms-a.component';
+import { DetalleComponent } from './pages/alojamiento/detalle/detalle.component';
+import { FormsEComponent } from './pages/experiencias/forms-e/forms-e.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { InterfacesComponent } from './pages/models/interfaces/interfaces.compon
     RegisterComponent,
     ExperienciasComponent,
     NavbarComponent,
-    InterfacesComponent
+    InterfacesComponent,
+    FormsAComponent,
+    DetalleComponent,
+    FormsEComponent
   ],
   imports: [
     BrowserModule,
