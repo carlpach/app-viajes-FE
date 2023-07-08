@@ -16,8 +16,8 @@ export class AlojamientoComponent {
   }
 
   ngOnInit(): void {
-    this.service.getAlojamientos().subscribe((data: any) => {
-      this.alojamientosList = [...data];
-    })
+    // this.service.getAlojamientos().subscribe((data: any) => {
+    //   this.alojamientosList = [...data];
+    // })
   }
 }
