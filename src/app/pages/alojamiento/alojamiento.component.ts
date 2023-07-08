@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
-import { Accommodation } from '../../models/interfaces';
+import { AccommodationsI } from '../../models/interfaces';
 
 @Component({
   selector: 'app-alojamiento',
@@ -8,7 +8,7 @@ import { Accommodation } from '../../models/interfaces';
   styleUrls: ['./alojamiento.component.scss']
 })
 export class AlojamientoComponent {
-  alojamientosList: Accommodation[] = [];
+  alojamientosList: AccommodationsI[] = [];
   token:any;
   constructor(public AuthService:AuthService) {
     this.token=this.AuthService.getToken()

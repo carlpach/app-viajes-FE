@@ -7,15 +7,20 @@ export interface ActividadesI{
   Itinerario: ItinerarioI;
 }
 
-export interface Accommodation{
-  _id: string;
-  Nombre: string;
-  Ubicacion: number;
-  Precio: number;
-  Descripcion: string;
-  Caratula: string;
-  Imagen: string;
-  Actividades: ActividadesI;
+export interface AccommodationsI {
+  _id: number;
+  name: string,
+  city: string,
+  type: [],
+  category: [],
+  level: [],
+  location: {
+    lat: number,
+    lng: number
+  },
+  mainImage: string,
+  images: [],
+  rooms: [],
 }
 
 export interface UserI{
