@@ -10,7 +10,6 @@ import { UserI } from 'src/app/models/interfaces';
   providedIn: 'root'
 })
 export class AuthService {
-  db_url: string = 'http://localhost:5000';
   constructor(private http: HttpClient) { }
 
   register(user: UserI){
