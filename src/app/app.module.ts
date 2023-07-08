@@ -6,9 +6,8 @@ import { AppComponent } from './app.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ExperienciasComponent } from './pages/experiencias/experiencias.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { InterfacesComponent } from './pages/models/interfaces/interfaces.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +15,8 @@ import { InterfacesComponent } from './pages/models/interfaces/interfaces.compon
     AlojamientoComponent,
     LoginComponent,
     RegisterComponent,
-    ExperienciasComponent,
     NavbarComponent,
-    InterfacesComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

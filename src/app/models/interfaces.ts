@@ -2,9 +2,11 @@ export interface ItinerarioI{
   Dia1: string;
   Dia2: string;
 }
+
 export interface ActividadesI{
   Itinerario: ItinerarioI;
 }
+
 export interface Accommodation{
   _id: string;
   Nombre: string;
@@ -15,6 +17,7 @@ export interface Accommodation{
   Imagen: string;
   Actividades: ActividadesI;
 }
+
 export interface UserI{
   id?: string;
   email: string;
