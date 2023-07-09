@@ -11,10 +11,6 @@
               <a class="nav-link active" aria-current="page" routerLink="/"> Alojamientos </a>
             </li>
           </ul>
-          <form class="d-flex" role="search" [formGroup]="searchForm" (ngSubmit)="submitForm()">
-            <input class="form-control me-2" formControlName="nombre"  type="search" placeholder="Introduce un destino, experiencia.." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"> Buscar </button>
-          </form>
           <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Identificate
@@ -46,9 +42,5 @@
         </div>
 
       </div>
-      <section>
-        <button class="btn_limpiar" (click)="limpiar()">Limpiar</button>
-      </section>
     </div>
-
   </div>
