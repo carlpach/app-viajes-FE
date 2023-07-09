@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { PagoComponent } from './pages/pago/pago.component';
 
 
 
@@ -27,7 +28,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     NavbarComponent,
     HomeComponent,
     AlojamientosComponent,
-    AlojamientoComponent
+    AlojamientoComponent,
+    PagoComponent
   ],
 
   imports: [

@@ -42,7 +42,7 @@ export class HomeComponent {
     const start = date_TO_String(this.searchForm.value.start);
     const end = date_TO_String(this.searchForm.value.end);
     console.log(start);
-    
+
     if(this.searchForm.valid){
       this.accommodationApi.getAccommodationsBySearch(city, start, end, people).subscribe((data) => {
         console.log(data);
