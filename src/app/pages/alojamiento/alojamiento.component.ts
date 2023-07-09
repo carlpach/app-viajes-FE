@@ -38,7 +38,7 @@ export class AlojamientoComponent {
 
   public clickBook(room: RoomI) {
     this.accommodationApi.setRoomSelected(room);
-    this.router.navigate(["/habitacion"]);
+    this.router.navigate(["/reserva"]);
 
   }
 

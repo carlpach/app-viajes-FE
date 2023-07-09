@@ -4,7 +4,7 @@ export interface ItinerarioI{
 }
 
 export interface AccommodationsI {
-  _id: number,
+  _id: string,
   name: string,
   city: string,
   type: [],
@@ -20,7 +20,7 @@ export interface AccommodationsI {
 }
 
 export interface RoomI {
-  _id: number,
+  _id: string,
   name: number,
   description: string,
   features: [],
@@ -31,15 +31,15 @@ export interface RoomI {
 }
 
 export interface BookingI {
-  _id: number,
-  bookingCode: string,
-  nameCustomer: string,
-  lastNameCustomer: string,
+  _id: string,
+  bookingCode: number,
+  name: string,
+  surname: string,
   dateEntry: string,
   dateDeparture: string,
   nights: number,
   timeCheckin: string,
-  commentCustomer: string,
+  petitionCustomer: string,
   image: string,
   room: string,
 

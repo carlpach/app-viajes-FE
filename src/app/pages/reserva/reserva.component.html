@@ -1,0 +1,35 @@
+<p>reserva works!</p>
+
+
+details booking room
+
+<div *ngIf="!submittedDetails" >
+    <form [formGroup]="bookingForm"  (ngSubmit)="clickIrAPagar()" >
+        <input placeholder="Nombre" formControlName="name" type="text"/>
+        <input placeholder="Apellido" formControlName="surname" type="text"/>
+        <input placeholder="Me gustaria una habitacion en un piso alto" formControlName="peticiones" type="text"/>
+
+        <button>Ir al pago</button>
+    </form>
+
+    
+</div>
+
+<div *ngIf="submittedDetails && !isPaid">
+    <h3>Nueva Tarjeta</h3>
+    <form [formGroup]="payForm" (ngSubmit)="clickPagar()" >
+        <label></label>
+        <input formControlName="name" type="text"/>
+        <input formControlName="surname" type="text"/>
+        <input placeholder="Num Tarjeta" formControlName="numeroTarjeta" type="number"/>
+        <input placeholder="DD / MM" formControlName="FechaCaducidad" type="text"/>
+        <input placeholder="CVC" formControlName="CVC" type="number"/>
+
+        <button>Completar la reserva</button>
+    </form> 
+
+</div>  
+
+<div *ngIf="isPaid">
+    <app-confirmation></app-confirmation>
+</div>  

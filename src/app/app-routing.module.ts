@@ -7,7 +7,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AlojamientosComponent } from './pages/alojamientos/alojamientos.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
-import { HabitacionComponent } from './pages/habitacion/habitacion.component';
+import { ReservaComponent } from './pages/reserva/reserva.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     path:'alojamiento', component: AlojamientoComponent
   },
   {
-    path:'habitacion', component: HabitacionComponent
+    path:'reserva', component: ReservaComponent
   },
 ];
 
