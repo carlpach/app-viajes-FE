@@ -1,1 +1,53 @@
-<p>navbar works!</p>
+<div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/"> Home </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/"> Alojamientos </a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search" [formGroup]="searchForm" (ngSubmit)="submitForm()">
+            <input class="form-control me-2" formControlName="nombre"  type="search" placeholder="Introduce un destino, experiencia.." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"> Buscar </button>
+          </form>
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Identificate
+            </a>
+            <div class="margin-button">
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="/register" *ngIf="!token"> Register</a></li>
+                <li><a class="dropdown-item" routerLink="/login" *ngIf="!token"> Login</a></li>
+                <li><button class="dropdown-item" (click)="logOut()" *ngIf="token">Logout</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div>
+      <div class="search-result" *ngFor="let item of searchResult">
+
+        <div class="container" *ngFor="let s of item">
+          <div *ngIf="s.Nombre">
+            <h3>{{s.Nombre}}</h3>
+            <p>{{s.Ubicacion}}</p>
+            <p>{{s.Precio}}</p>
+            <img src="{{s.Caratula}}" alt="{{s.Nombre}}">
+
+          </div>
+
+        </div>
+
+      </div>
+      <section>
+        <button class="btn_limpiar" (click)="limpiar()">Limpiar</button>
+      </section>
+    </div>
+
+  </div>
