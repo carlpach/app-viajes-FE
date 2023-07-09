@@ -46,10 +46,10 @@ export class HomeComponent {
     if(this.searchForm.valid){
       this.accommodationApi.getAccommodationsBySearch(city, start, end, people).subscribe((data) => {
         console.log(data);
-        this.accommodationApi.setAccommod(data);
+        this.accommodationApi.setAccommodSearched(data);
         this.searchForm.reset();
         this.submitted = false;
-        this.router.navigate(["/"]);
+        this.router.navigate(["/alojamientos"]);
       })
     }
   }

@@ -25,9 +25,12 @@ export class AccommodationService {
   }   
 
 
-  public setAccommod(accommodSearched: any){
+  public setAccommodSearched(accommodSearched: any){
     this.accommodSearched = accommodSearched;
   }
 
+  public getAccommodSearched(){
+    return this.accommodSearched;
+  }
 
 }

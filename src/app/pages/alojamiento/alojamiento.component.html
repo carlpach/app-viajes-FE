@@ -1,10 +1,11 @@
 <div class="container">
   <ul class="list">
-      <li class="itemlist" *ngFor="let alojamiento of alojamientosList" routerLink="/alojamientos/{{alojamiento._id}}">
+      <li class="itemlist" *ngFor="let alojamiento of alojamientosList" routerLink="/habitacion/{{alojamiento._id}}">
           <h3>{{alojamiento.name}}</h3>
           <p>{{alojamiento.location}}</p>
           <img src="{{alojamiento.mainImage}}" alt="{{alojamiento.name}}" />
       </li>
   </ul>
+  <div *ngIf="!alojamientosList" >no hay alojamientos, busca de nuevo</div>
   <button routerLink="/addAlojamiento" *ngIf="token">Reservar</button>
 </div>

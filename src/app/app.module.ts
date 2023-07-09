@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
+import { AlojamientosComponent } from './pages/alojamientos/alojamientos.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -21,11 +22,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
-    AlojamientoComponent,
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
     HomeComponent,
+    AlojamientosComponent,
+    AlojamientoComponent
   ],
 
   imports: [
