@@ -12,6 +12,7 @@ export class AccommodationService {
   public placeholderImg: string =  "https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg";
 
   accommodSearched!: AccommodationsI[];
+  accommodSelected!: AccommodationsI;
 
 
   constructor(private http: HttpClient) { }
@@ -25,6 +26,7 @@ export class AccommodationService {
   }   
 
 
+  // set accommodation list searched by city by user
   public setAccommodSearched(accommodSearched: any){
     this.accommodSearched = accommodSearched;
   }
@@ -32,5 +34,20 @@ export class AccommodationService {
   public getAccommodSearched(){
     return this.accommodSearched;
   }
+
+
+  // set accommodation selected by user
+  public setAccommodSelected(accommodSelected: AccommodationsI){
+    this.accommodSelected = accommodSelected;
+  }  
+
+  public getAccommodSelected(){
+    return this.accommodSelected;
+  }
+
+  public getRoomsByID(id: number){
+    return this.http.get(`${environment.db_url}/rooms/${id}`);
+  }
+
 
 }

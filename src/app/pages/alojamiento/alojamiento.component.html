@@ -1,11 +1,19 @@
+
+<p>habitacones en alojamiento</p>
+
 <div class="container">
   <ul class="list">
-      <li class="itemlist" *ngFor="let alojamiento of alojamientosList" routerLink="/habitacion/{{alojamiento._id}}">
-          <h3>{{alojamiento.name}}</h3>
-          <p>{{alojamiento.location}}</p>
-          <img src="{{alojamiento.mainImage}}" alt="{{alojamiento.name}}" />
+      <li class="itemlist" *ngFor="let room of habitaciones">
+          <h3>{{room.name}}</h3>
+          <p>{{room.description}}</p>
+          <p>{{room.price}}</p>
+          <img src="{{room.mainImage}}" alt="{{room.name}}" />
       </li>
   </ul>
+  
   <div *ngIf="!alojamientosList" >no hay alojamientos, busca de nuevo</div>
   <button routerLink="/reservas" *ngIf="token">Reservar</button>
+
+  <div *ngIf="!habitaciones" >no hay rooms, busca de nuevo</div>
+
 </div>
