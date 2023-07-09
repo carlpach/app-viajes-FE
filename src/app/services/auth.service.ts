@@ -36,10 +36,6 @@ export class AuthService {
     localStorage.removeItem('user');
   }
 
-  getLibros(){
-    return this.http.get(`${environment.db_url}/libros`);
-  }
-
   checkSession(){
     return this.http.get(`${environment.db_url}/users/checksession`).pipe(
       catchError(this.handleError)

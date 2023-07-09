@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
-import { HostListener } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 
@@ -31,7 +30,7 @@ export class NavbarComponent {
     "nombre":new FormControl(null)
 
   })
-  
+
   submitForm(){
     // console.log(this.searchForm.value)
     // this.service.getSearch(this.searchForm.value).subscribe((result)=>{
