@@ -30,7 +30,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     HomeComponent,
     AlojamientosComponent,
     AlojamientoComponent,
-    PagoComponent
+    PagoComponent,
     ProfileComponent
   ],
 
