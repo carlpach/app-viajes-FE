@@ -24,6 +24,10 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
+  getUser(){
+    return localStorage.getItem('user');
+  }
+
   getRole(){
     let user = JSON.parse(String(localStorage.getItem('user')));
 

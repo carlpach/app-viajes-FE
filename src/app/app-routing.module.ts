@@ -7,7 +7,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AlojamientosComponent } from './pages/alojamientos/alojamientos.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
-import { authGuard } from './guard/auth.guard';
+import { HabitacionComponent } from './pages/habitacion/habitacion.component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,9 @@ const routes: Routes = [
   {
     path:'alojamiento', component: AlojamientoComponent
   },
-  {path:'register', component:RegisterComponent},
-  {path:'login', component:LoginComponent},
+  {
+    path:'habitacion', component: HabitacionComponent
+  },
 ];
 
 @NgModule({

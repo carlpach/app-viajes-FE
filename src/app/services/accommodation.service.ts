@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.local';
-import { AccommodationsI } from "../models/interfaces";
+import { AccommodationsI, RoomI, BookingI } from "../models/interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class AccommodationService {
 
   accommodSearched!: AccommodationsI[];
   accommodSelected!: AccommodationsI;
-
+  roomSelected!: RoomI;
 
   constructor(private http: HttpClient) { }
 
@@ -49,5 +49,20 @@ export class AccommodationService {
     return this.http.get(`${environment.db_url}/rooms/${id}`);
   }
 
+    // set room selected by user
+    public setRoomSelected(room: any){
+      this.roomSelected = room;
+    }
+
+    // get room selected by user
+    public getRoomSelected(){
+      return this.roomSelected;
+    }
+
+
+    postBooking(booking: BookingI) {
+      return this.http.post(environment.base_url, booking);
+    }
+  
 
 }
