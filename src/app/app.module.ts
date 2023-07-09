@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PagoComponent } from './pages/pago/pago.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -30,6 +31,7 @@ import { PagoComponent } from './pages/pago/pago.component';
     AlojamientosComponent,
     AlojamientoComponent,
     PagoComponent
+    ProfileComponent
   ],
 
   imports: [
@@ -43,7 +45,7 @@ import { PagoComponent } from './pages/pago/pago.component';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+
   ],
 
   providers: [],

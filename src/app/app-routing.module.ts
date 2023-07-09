@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AlojamientosComponent } from './pages/alojamientos/alojamientos.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
 import { authGuard } from './guard/auth.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { PagoComponent } from './pages/pago/pago.component';
 
 const routes: Routes = [
@@ -22,9 +23,6 @@ const routes: Routes = [
   },
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
-  {
-    path:'pago', component: PagoComponent
-  },
 ];
 
 @NgModule({
