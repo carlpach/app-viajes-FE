@@ -21,6 +21,7 @@
             </a>
             <div class="margin-button">
               <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="/profile"> Profile</a></li>
                 <li><a class="dropdown-item" routerLink="/register" *ngIf="!token"> Register</a></li>
                 <li><a class="dropdown-item" routerLink="/login" *ngIf="!token"> Login</a></li>
                 <li><button class="dropdown-item" (click)="logOut()" *ngIf="token">Logout</button></li>
