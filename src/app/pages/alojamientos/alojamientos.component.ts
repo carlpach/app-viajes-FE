@@ -2,16 +2,13 @@ import { Component } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { AccommodationsI } from '../../models/interfaces';
 import { AccommodationService } from 'src/app/services/accommodation.service';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { ReservaComponent } from '../reservas/reservas.component';
+
 @Component({
-  selector: 'app-alojamiento',
-  templateUrl: './alojamiento.component.html',
-  styleUrls: ['./alojamiento.component.scss']
+  selector: 'app-alojamientos',
+  templateUrl: './alojamientos.component.html',
+  styleUrls: ['./alojamientos.component.scss']
 })
-export class AlojamientoComponent {
+export class AlojamientosComponent {
 
   alojamientosList: AccommodationsI[] = [];
   token:any;
@@ -34,13 +31,5 @@ export class AlojamientoComponent {
     console.log(this.alojamientosList);
     
   }
-  
 }
-@NgModule({
-    imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  bootstrap: [ReservaComponent]
-})
-export class AppModule { }
+
