@@ -6,9 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./reservas.component.scss']
 })
 export class ReservasComponent {
-
-}
-export class ReservaComponent {
   mostrarFormulario: boolean = true;
   nombre = 'pepito';
   apellido = 'gomez';

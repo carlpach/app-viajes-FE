@@ -1,0 +1,25 @@
+<div>
+    <h1>Reservas</h1>
+    <div *ngIf="mostrarFormulario">
+      <form>
+        <div>
+          <label>Nombre:</label>
+          <input type="text" [(ngModel)]="nombre" name="nombre">
+        </div>
+        <div>
+          <label>Apellido:</label>
+          <input type="text" [(ngModel)]="apellido" name="apellido">
+        </div>
+        <div>
+          <label>Email:</label>
+          <input type="email" [(ngModel)]="email" name="email">
+        </div>
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+  
+  
+  
+  
+  
