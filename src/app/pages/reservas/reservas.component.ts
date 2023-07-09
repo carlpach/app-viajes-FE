@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-reservas',
@@ -11,3 +13,13 @@ export class ReservasComponent {
   apellido = 'gomez';
   email = 'pepitogomez@example.com';
 }
+
+const routes: Routes = [
+  { path: 'reservas', component: ReservasComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

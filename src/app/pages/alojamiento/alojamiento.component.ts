@@ -5,7 +5,7 @@ import { AccommodationService } from 'src/app/services/accommodation.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { ReservaComponent } from '../reservas/reservas.component';
+import { ReservasComponent } from '../reservas/reservas.component';
 @Component({
   selector: 'app-alojamiento',
   templateUrl: './alojamiento.component.html',
@@ -41,6 +41,6 @@ export class AlojamientoComponent {
     BrowserModule,
     FormsModule
   ],
-  bootstrap: [ReservaComponent]
+  bootstrap: [ReservasComponent]
 })
 export class AppModule { }
