@@ -4,11 +4,11 @@ import { AccommodationsI } from '../../models/interfaces';
 import { AccommodationService } from 'src/app/services/accommodation.service';
 
 @Component({
-  selector: 'app-alojamiento',
-  templateUrl: './alojamiento.component.html',
-  styleUrls: ['./alojamiento.component.scss']
+  selector: 'app-alojamientos',
+  templateUrl: './alojamientos.component.html',
+  styleUrls: ['./alojamientos.component.scss']
 })
-export class AlojamientoComponent {
+export class AlojamientosComponent {
 
   alojamientosList: AccommodationsI[] = [];
   token:any;
