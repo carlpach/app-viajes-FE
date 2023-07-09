@@ -7,6 +7,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AlojamientosComponent } from './pages/alojamientos/alojamientos.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +19,8 @@ const routes: Routes = [
   {
     path:'alojamiento', component: AlojamientoComponent
   },
+  {path:'register', component:RegisterComponent},
+  {path:'login', component:LoginComponent},
 ];
 
 @NgModule({
