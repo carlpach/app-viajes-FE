@@ -19,6 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ReservaComponent } from './pages/reserva/reserva.component';
+import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
 
 
@@ -31,7 +33,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     HomeComponent,
     AlojamientosComponent,
     AlojamientoComponent,
-    ProfileComponent
+    ProfileComponent,
+    ReservaComponent,
+    ConfirmationComponent
   ],
 
   imports: [
@@ -46,7 +50,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+
   ],
 
   providers: [],
