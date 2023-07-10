@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { AccommodationsI, RoomI } from '../../models/interfaces';
 import { AccommodationService } from 'src/app/services/accommodation.service';
+
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -35,6 +36,7 @@ export class AlojamientoComponent {
     console.log("this.habitaciones  ---", this.alojamiento );
 
   }
+ 
 
   public clickBook(room: RoomI) {
     this.accommodationApi.setRoomSelected(room);
@@ -43,4 +45,3 @@ export class AlojamientoComponent {
   }
 
 }
-
