@@ -13,7 +13,7 @@ export class NavbarComponent {
   token:any;
 
 url?:string;
-constructor(private router:Router, private AuthService:AuthService, private service:NavbarService){
+constructor(private router:Router, private AuthService:AuthService, private service:NavbarService, public authApi:AuthService){
   this.token=this.AuthService.getToken();
   this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   this.router.events.subscribe((val) => {
@@ -50,8 +50,8 @@ limpiar(){
     // localStorage.clear(); //COn este borrariamos todo en localstorage
     // localStorage.removeItem('token');
     // localStorage.removeItem('user');
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('user')
+    localStorage.removeItem('token');
+    localStorage.removeItem('user')
     location.reload();
     this.router.navigate(["/"]);
 
