@@ -23,6 +23,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
+import { GoogleMapsModule } from '@angular/google-maps';
+
 
 
 @NgModule({
@@ -53,6 +55,7 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    GoogleMapsModule
 
   ],
 
