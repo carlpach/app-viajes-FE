@@ -15,7 +15,7 @@ export class AlojamientosComponent {
   alojamientosList: AccommodationsI[] = [];
   token:any;
   public mapBounds = new google.maps.LatLngBounds();
-  public map!: GoogleMap;
+  @ViewChild(GoogleMap) map!: GoogleMap;
 
   mapOptions: google.maps.MapOptions = {
   };
@@ -23,26 +23,24 @@ export class AlojamientosComponent {
   constructor(private accommodationApi: AccommodationService, public AuthService:AuthService, private router: Router) {}
 
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
 
-    this.map.googleMap!.setZoom(13);
 
-    // // get alojamientos searched from service
-    // this.alojamientosList = this.accommodationApi.getAccommodSearched();
-    // console.log(this.alojamientosList);
+    // get alojamientos searched from service
+    this.alojamientosList = this.accommodationApi.getAccommodSearched();
+    console.log(this.alojamientosList);
 
-    // // zoom to existing markers
-    // let bounds = new google.maps.LatLngBounds();
-    // console.log(this.alojamientosList!);
+    // zoom to existing markers
+    let bounds = new google.maps.LatLngBounds();
+    console.log(this.alojamientosList!);
 
-    // for (let alojamiento of this.alojamientosList) {
-    //   let latLng = new google.maps.LatLng(alojamiento.location.lat, alojamiento.location.lng);
-    //   bounds.extend(latLng);  
-    // }
-    // console.log("bounds ---", bounds);
-    // this.map.googleMap!.setZoom(13);
+    for (let alojamiento of this.alojamientosList) {
+      let latLng = new google.maps.LatLng(alojamiento.location.lat, alojamiento.location.lng);
+      bounds.extend(latLng);  
+    }
+    console.log("bounds ---", bounds);
 
-    // this.map.googleMap!.fitBounds(bounds);  
+    this.map.googleMap!.fitBounds(bounds);  
     
   }
 
@@ -50,5 +48,14 @@ export class AlojamientosComponent {
     this.accommodationApi.setAccommodSelected(accommodSelected);
     this.router.navigate(["/alojamiento"]);
   }
+
+  onClickItem (alojamiento: AccommodationsI) {
+    console.log(alojamiento);
+    
+    this.map.googleMap!.setCenter(alojamiento.location);
+    this.map.googleMap!.setZoom(13);
+  
+  }
+
 }
 

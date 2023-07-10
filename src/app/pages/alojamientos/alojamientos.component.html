@@ -1,20 +1,18 @@
-<p>alojamientos works!</p>
 
-<div class="container">
-    <ul class="list">
-        <li class="itemlist" *ngFor="let alojamiento of alojamientosList" (click)="clickAlojamientoDetalle(alojamiento)">
+    <ul class="" *ngIf="alojamientosList">
+        <li class="itemlist" (click)="onClickItem(alojamiento)" *ngFor="let alojamiento of alojamientosList">
+            <img class="ul__img" src="{{alojamiento.mainImage}}" alt="{{alojamiento.name}}" />
             <h3>{{alojamiento.name}}</h3>
-            <p>{{alojamiento.location}}</p>
-            <img src="{{alojamiento.mainImage}}" alt="{{alojamiento.name}}" />
+            <p>{{alojamiento.LowerPrice}}</p>
+            <button (click)="clickAlojamientoDetalle( alojamiento )">Reservar</button>
         </li>
     </ul>
-    <div *ngIf="!alojamientosList" >no hay alojamientos, busca de nuevo</div>
-    <button routerLink="/addAlojamiento" *ngIf="token">Reservar</button>
-  </div>
 
+    <h2 *ngIf="!alojamientosList" >No hay alojamientos aquí, busca de nuevo</h2>
 
   <div class="my-google-map">
     <google-map width="100%" height="100%" class="b-map" [options]="mapOptions">
-    </google-map>    
-</div>
-  
+        <map-marker *ngFor="let alojamiento of alojamientosList"
+        [position]="alojamiento.location"></map-marker>
+    </google-map>
+

@@ -7,6 +7,7 @@ export interface AccommodationsI {
   _id: string,
   name: string,
   city: string,
+  LowerPrice: number,
   type: [],
   category: [],
   level: [],
