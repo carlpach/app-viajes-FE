@@ -1,3 +1,4 @@
+/* Estilos comunes */
 .navbar {
   background-image: url('../../../assets/1_YO5yJgwx4kHUu_RlF8I-kQ.jpg');
   background-size: cover;
@@ -46,4 +47,48 @@
   color: red;
   font-size: 14px;
   margin-top: 5px;
+}
+
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 400px) {
+  .navbar {
+    height: auto;
+    background-image: none;
+  }
+
+  .search-form {
+    padding: 10px;
+  }
+
+  .search-form input[type="text"] {
+    font-size: 12px;
+  }
+
+  .date-range {
+    margin-bottom: 10px;
+  }
+
+  .search-button {
+    padding: 3px 8px;
+    font-size: 14px;
+  }
+
+  .error-message {
+    font-size: 12px;
+  }
+}
+
+/* Media query para pantallas de PC */
+@media only screen and (min-width: 1024px) {
+  .search-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .search-form input[type="text"],
+  .date-range,
+  .search-button {
+    margin: 0 10px;
+  }
 }
