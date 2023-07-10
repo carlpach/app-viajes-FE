@@ -31,7 +31,7 @@ export class ReservaComponent {
     console.log("accommod is -------", this.accommodationApi.getAccommodSelected());
 
     // this.user = this.AuthService.getUser();
-    this.user = JSON.parse(String(this.AuthService.getUser()));
+    this.user = this.AuthService.getUser();
     console.log(this.user);
     
 
