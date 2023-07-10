@@ -1,1 +1,27 @@
-<p>navbar works!</p>
+<div class="nav">
+<div>
+  <h3>Booking.com</h3>
+</div>
+
+<button class="boton" mat-button [matMenuTriggerFor]="menu">☰</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item><a class="dropdown-item" routerLink="/"> Home </a></button>
+  <button mat-menu-item><a class="dropdown-item" routerLink="/alojamientos"> Alojamientos </a></button>
+  <button mat-menu-item><a class="dropdown-item" routerLink="/register" *ngIf="!token"> Register</a></button>
+  <button mat-menu-item><a class="dropdown-item" routerLink="/login" *ngIf="!token"> Login</a></button>
+  <button mat-menu-item><a class="dropdown-item" routerLink="/profile"> Profile</a></button>
+</mat-menu>
+</div>
+
+
+
+
+
+
+
+
+
+               
+         
+     
+

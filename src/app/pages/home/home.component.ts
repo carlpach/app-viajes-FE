@@ -40,9 +40,9 @@ export class HomeComponent {
     const city = this.searchForm.value.city;
     const people = this.searchForm.value.people;
     const start = date_TO_String(this.searchForm.value.start);
-    const end = date_TO_String(this.searchForm.value.end);
-    console.log(start);
-    
+    const end = date_TO_String(this.searchForm.value.end);    
+    console.log("start checkin-----", start);
+
     if(this.searchForm.valid){
       this.accommodationApi.getAccommodationsBySearch(city, start, end, people).subscribe((data) => {
         console.log(data);
