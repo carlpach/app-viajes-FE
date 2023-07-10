@@ -10,7 +10,7 @@
     <p>{{user.email}}</p>
     </div>
     <div class="img">
-    <img src="{{user.img}}" alt="imagen perfil del usuario">
+    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="imagen perfil del usuario">
     </div>
 </div>
 
@@ -18,10 +18,10 @@
     <div class="reserva">
     <h4>Mis reservas</h4>
     </div>
-    <div class="misReservas">
+    <div class="misReservas" *ngFor="let book of user.Booking">
     <div>
-        <p>nombre ciudad</p>    
-        <p>fecha</p>
+        <p>{{book.name}}</p>    
+        <p>{{book.date}}</p>
      </div> 
         <div>  
             <button><svg
@@ -57,7 +57,7 @@
                 />
                 <path d="M9 9H11V17H9V9Z" fill="currentColor" />
                 <path d="M13 9H15V17H13V9Z" fill="currentColor" />
-              </svg></button>    
+              </svg></button>  
             </div>
     </div>
 </div>

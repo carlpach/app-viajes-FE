@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserI } from 'src/app/models/interfaces';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,14 +6,11 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
-  user = { 
-  name: "",
-  email: "",
-  img: ""
-}
-  constructor(private authApi: AuthService, private router: Router){
+export class ProfileComponent implements OnInit{
+user: any
+  constructor(private authApi: AuthService){}
 
-    this.user = this.authApi.getRole()
+  ngOnInit(): void {
+    this.user = this.authApi.getUser()
   }
 }
