@@ -1,11 +1,58 @@
 
 <div *ngIf="!submittedDetails" >
-    <h2>details booking room</h2>
-    <form [formGroup]="bookingForm"  (ngSubmit)="clickIrAPagar()" >
+    <div>
+        <h2>{{ alojamiento!.name }} </h2>
+        <h2>{{ alojamiento!.type }} in {{ alojamiento!.city}} </h2>
+        <div>{{ alojamiento!.level }} estrellas</div>
+    </div>
+
+    <h2>Los datos de tu próxima reserva </h2>
+    <div>
+        <p>Entrada</p>
+        <div>{{ startSearched }}</div>
+
+        <p>Salida</p>
+        <div>{{ endSearched }}</div>
+    </div>
+
+    <div>
+        <p>Duración total de la estancia</p>
+        <div> {{ nightsSearched }} noches </div>
+        <div> ({{ peopleSearched }} personas) </div>
+
+        <p>Tu seleccion de habitación</p>
+        <div> {{ room.name }} </div>
+        <ul>
+            <li *ngFor="let feature of room.features"> 
+                {{ feature }}
+            </li>
+
+        </ul>
+
+        <h3>Alojamiento en {{ citySearched }} </h3>
+    </div>
+</div>
+
+<div>
+    <h3>Desglose del precio</h3>
+    <div>
+        <h3>Total</h3>
+        <div>
+            <p>€ {{room.price * nightsSearched}}</p>
+            <p>Incluye impuestos y cargos</p>            
+        </div>
+    </div>
+</div>
+
+
+<div >
+    <form class="b-form" *ngIf="!submittedDetails" [formGroup]="bookingForm" (ngSubmit)="clickIrAPagar()" >
+        <h2>Introduce tus datos</h2>
         <input placeholder="Nombre" formControlName="name" type="text"/>
         <input placeholder="Apellido" formControlName="lastname" type="text"/>
-        <input placeholder="Me gustaria una habitacion en un piso alto" formControlName="peticiones" type="text"/>
-
+        <input placeholder="Email" formControlName="email" type="email"/>
+        <h2>Peticiones especiales</h2>
+        <textarea placeholder="Me gustaria una habitacion en un piso alto" formControlName="peticiones" type="textarea"></textarea>
         <button>Ir al pago</button>
     </form>
 
@@ -14,7 +61,7 @@
 
 <div *ngIf="submittedDetails && !isPaid">
     <h3>Nueva Tarjeta</h3>
-    <form [formGroup]="payForm" (ngSubmit)="clickPagar()" >
+    <form class="b-form" [formGroup]="payForm" (ngSubmit)="clickPagar()" >
         <label></label>
         <input formControlName="name" type="text"/>
         <p *ngIf="(submittedPayForm && payForm?.get('name')?.hasError('required'))">Este campo es requerido</p>

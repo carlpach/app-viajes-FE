@@ -1,18 +1,25 @@
 
-    <ul class="" *ngIf="alojamientosList">
-        <li class="itemlist" (click)="onClickItem(alojamiento)" *ngFor="let alojamiento of alojamientosList">
-            <img class="ul__img" src="{{alojamiento.mainImage}}" alt="{{alojamiento.name}}" />
-            <h3>{{alojamiento.name}}</h3>
-            <p>{{alojamiento.LowerPrice}}</p>
-            <button (click)="clickAlojamientoDetalle( alojamiento )">Reservar</button>
-        </li>
-    </ul>
+<div>
+    <h2>Alojamiento en {{ citySearched }} </h2>
+    <div>De  {{ startSearched }}  a  {{ endSearched }}</div>
+    <div> {{ nightsSearched }} noches </div>
+</div>
 
-    <h2 *ngIf="!alojamientosList" >No hay alojamientos aquí, busca de nuevo</h2>
 
-  <div class="my-google-map">
-    <google-map width="100%" height="100%" class="b-map" [options]="mapOptions">
-        <map-marker *ngFor="let alojamiento of alojamientosList"
-        [position]="alojamiento.location"></map-marker>
-    </google-map>
+<ul class="" *ngIf="alojamientosList">
+    <li class="itemlist" (click)="onClickItem(alojamiento)" *ngFor="let alojamiento of alojamientosList">
+        <img class="ul__img" src="{{ alojamiento.mainImage }}" alt="{{ alojamiento.name }}" />
+        <h3>{{alojamiento.name}}</h3>
+        <p>Desde {{alojamiento.LowerPrice}} /noche</p>
+        <button (click)="clickAlojamientoDetalle( alojamiento )">Reservar</button>
+    </li>
+</ul>
+
+<h3 *ngIf="!alojamientosList" >Lo sentimos pero no hay alojamiento para esas fechas</h3>
+
+<div class="my-google-map">
+<google-map width="100%" height="100%" class="b-map" [options]="mapOptions">
+    <map-marker *ngFor="let alojamiento of alojamientosList"
+    [position]="alojamiento.location"></map-marker>
+</google-map>
 

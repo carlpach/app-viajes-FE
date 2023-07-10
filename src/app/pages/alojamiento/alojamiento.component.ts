@@ -14,6 +14,8 @@ export class AlojamientoComponent {
 
   public alojamiento?: AccommodationsI;
   public habitaciones?: RoomI[] = [];
+  public nightsSearched: any;
+  public mainImage?: string;
 
   constructor(private accommodationApi: AccommodationService, public AuthService:AuthService, private router: Router) {
     // this.token=this.AuthService.getToken()
@@ -25,6 +27,8 @@ export class AlojamientoComponent {
   ngOnInit(): void {
 
     this.alojamiento = this.accommodationApi.getAccommodSelected()
+    this.nightsSearched = sessionStorage.getItem('nights');
+    this.mainImage = this.alojamiento.images[0];
 
     for (const roomId of this.alojamiento.rooms) {
       this.accommodationApi.getRoomsByID(roomId).subscribe((data: any) => {

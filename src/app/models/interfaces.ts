@@ -16,8 +16,8 @@ export interface AccommodationsI {
     lng: number
   },
   mainImage: string,
-  images: [],
-  rooms: [],
+  images: string[],
+  rooms: string[],
 }
 
 export interface RoomI {

@@ -1,12 +1,19 @@
 
-<p>habitacones en alojamiento</p>
+<div>
+  <h2>{{ alojamiento!.name }} </h2>
+  <h2>{{ alojamiento!.type }} in {{ alojamiento!.city}} </h2>
+  <div>De  {{ alojamiento!.level }} estrellas</div>
+  <img src="{{ mainImage }}" alt="{{alojamiento!.name}}" />
+</div>
+
 
 <div class="container">
   <ul class="list">
       <li class="itemlist" *ngFor="let room of habitaciones">
           <h3>{{room.name}}</h3>
           <p>{{room.description}}</p>
-          <p>{{room.price}}</p>
+          <p>€ {{room.price * nightsSearched}}</p>
+          <p>(Total) Incluye impuestos y cargos</p>
           <img src="{{room.mainImage}}" alt="{{room.name}}" />
           <button (click)="clickBook(room)" >Reservar</button>
       </li>

@@ -14,22 +14,37 @@ import { BookingService } from 'src/app/services/booking.service';
 export class ReservaComponent {
 
   public user: any;
+  public room!: RoomI;
+  public alojamiento!: AccommodationsI;
   public submittedDetails: boolean = false;
   public submittedPayForm: boolean = false;
   public isPaid: boolean = false;
-  public room!: RoomI;
   public bookingForm!: FormGroup;
   public payForm!: FormGroup;
   public booking!: BookingI;
   public bookingResponse!: any;
 
+  public citySearched: any;
+  public startSearched: any;
+  public endSearched: any;
+  public peopleSearched: any;
+  public nightsSearched: any;
+
   constructor(private accommodationApi: AccommodationService, public AuthService: AuthService, private router: Router, private bookingApi: BookingService) {}
 
   ngOnInit(): void {
+
+    // get data of search
+    this.citySearched = sessionStorage.getItem('city');
+    this.startSearched = sessionStorage.getItem('start');
+    this.endSearched = sessionStorage.getItem('end');
+    this.peopleSearched = sessionStorage.getItem('people');
+    this.nightsSearched = sessionStorage.getItem('nights');
+
     // get room selected from service api
     this.room = this.accommodationApi.getRoomSelected();
     console.log("selected room is -------", this.room);
-    console.log("accommod is -------", this.accommodationApi.getAccommodSelected());
+    this.alojamiento = this.accommodationApi.getAccommodSelected();
 
     // this.user = this.AuthService.getUser();
     this.user = this.AuthService.getUser();
@@ -39,7 +54,8 @@ export class ReservaComponent {
     this.bookingForm = new FormGroup({
       name: new FormControl(this.user.name),
       lastname: new FormControl(this.user.lastname),
-      peticiones: new FormControl('')
+      peticiones: new FormControl(''),
+      email: new FormControl(this.user.email),
 
     });
 

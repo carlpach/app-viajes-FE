@@ -1,0 +1,15 @@
+.b-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+input {
+    width: 60%;
+}
+
+textarea {
+    width: 60%;
+}

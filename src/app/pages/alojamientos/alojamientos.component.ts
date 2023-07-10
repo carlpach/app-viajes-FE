@@ -12,6 +12,12 @@ import { GoogleMap } from '@angular/google-maps';
 })
 export class AlojamientosComponent {
 
+  public citySearched: any;
+  public startSearched: any;
+  public endSearched: any;
+  public peopleSearched: any;
+  public nightsSearched: any;
+
   alojamientosList: AccommodationsI[] = [];
   token:any;
   public mapBounds = new google.maps.LatLngBounds();
@@ -25,6 +31,14 @@ export class AlojamientosComponent {
 
   ngAfterViewInit(): void {
 
+    this.citySearched = sessionStorage.getItem('city');
+    this.startSearched = sessionStorage.getItem('start');
+    this.endSearched = sessionStorage.getItem('end');
+    this.peopleSearched = sessionStorage.getItem('people');
+    this.nightsSearched = sessionStorage.getItem('nights');
+
+    this.map.googleMap!.setCenter({lat: 40.394150, lng: -3.596239}); // Center of Spain
+    this.map.googleMap!.setZoom(6);
 
     // get alojamientos searched from service
     this.alojamientosList = this.accommodationApi.getAccommodSearched();
@@ -34,13 +48,15 @@ export class AlojamientosComponent {
     let bounds = new google.maps.LatLngBounds();
     console.log(this.alojamientosList!);
 
-    for (let alojamiento of this.alojamientosList) {
-      let latLng = new google.maps.LatLng(alojamiento.location.lat, alojamiento.location.lng);
-      bounds.extend(latLng);  
-    }
-    console.log("bounds ---", bounds);
+    if (this.alojamientosList) {  
+      for (let alojamiento of this.alojamientosList) {
+        let latLng = new google.maps.LatLng(alojamiento.location.lat, alojamiento.location.lng);
+        bounds.extend(latLng);  
+      }
+      console.log("bounds ---", bounds);
 
-    this.map.googleMap!.fitBounds(bounds);  
+      this.map.googleMap!.fitBounds(bounds);  
+    }
     
   }
 
