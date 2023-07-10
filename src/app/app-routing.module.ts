@@ -9,7 +9,7 @@ import { AlojamientosComponent } from './pages/alojamientos/alojamientos.compone
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
 import { authGuard } from './guard/auth.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { PagoComponent } from './pages/pago/pago.component';
+import { ReservaComponent } from './pages/reserva/reserva.component';
 
 const routes: Routes = [
   {
@@ -21,8 +21,9 @@ const routes: Routes = [
   {
     path:'alojamiento', component: AlojamientoComponent
   },
-  {path:'register', component:RegisterComponent},
-  {path:'login', component:LoginComponent},
+  {
+    path:'reserva', component: ReservaComponent
+  },
 ];
 
 @NgModule({

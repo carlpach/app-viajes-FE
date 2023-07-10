@@ -16,8 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { PagoComponent } from './pages/pago/pago.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ReservaComponent } from './pages/reserva/reserva.component';
+import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
 
 
@@ -30,8 +31,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     HomeComponent,
     AlojamientosComponent,
     AlojamientoComponent,
-    PagoComponent,
-    ProfileComponent
+    ProfileComponent,
+    ReservaComponent,
+    ConfirmationComponent
   ],
 
   imports: [

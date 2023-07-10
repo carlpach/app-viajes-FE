@@ -41,6 +41,8 @@ export class HomeComponent {
     const people = this.searchForm.value.people;
     const start = date_TO_String(this.searchForm.value.start);
     const end = date_TO_String(this.searchForm.value.end);
+
+    
     console.log(start);
 
     if(this.searchForm.valid){
