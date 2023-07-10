@@ -94,16 +94,14 @@ export class ReservaComponent {
 
       // post booking in api
       this.bookingApi.postBooking(this.booking).subscribe((data: any) => {
-        this.bookingResponse = data;
-      });
-      
-      console.log("booking response --------->", this.bookingResponse);
-      console.log("user id", this.user._id);
-      
-      // Put booking in user db
-      this.bookingApi.putUserBooking(this.user._id, this.bookingResponse._id).subscribe((data) => {
-        console.log("added booking to user ---------", data);   
-      });
+        console.log(data);
+        console.log("user id", this.user._id);
+        
+        // Put booking in user db
+        this.bookingApi.putUserBooking(this.user._id, data._id).subscribe((data) => {
+          console.log("added booking to user ---------", data);   
+        });
+    });
 
     }
   }
