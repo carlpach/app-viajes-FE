@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,7 +40,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    MatButtonModule, 
+    MatMenuModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatDatepickerModule,
