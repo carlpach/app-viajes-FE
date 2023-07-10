@@ -41,8 +41,8 @@ export class LoginComponent {
           console.log(data);
           // localStorage.setItem('token', data.token);
           // localStorage.setItem('user', JSON.stringify(data.user));
-          sessionStorage.setItem('token', data.token);
-          sessionStorage.setItem('user', JSON.stringify(data.user));
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
           this.router.navigate(['/home']);
 
         },(error)=>{this.error=error})
