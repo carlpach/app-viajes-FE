@@ -7,10 +7,10 @@
 <mat-menu #menu="matMenu">
   <button mat-menu-item><a class="dropdown-item" routerLink="/"> Home </a></button>
   <button mat-menu-item><a class="dropdown-item" routerLink="/alojamientos"> Alojamientos </a></button>
-  <button mat-menu-item><a class="dropdown-item" routerLink="/register" *ngIf="!AuthService.getToken()"> Register</a></button>
-  <button mat-menu-item><a class="dropdown-item" routerLink="/login" *ngIf="!AuthService.getToken()"> Login</a></button>
-  <button mat-menu-item><a class="dropdown-item" routerLink="/profile" *ngIf="AuthService.getToken()"> Profile</a></button>
-  <button mat-menu-item (click)="logOut()"><a class="dropdown-item" routerLink="/profile" *ngIf="AuthService.getToken()"> LogOut</a></button>
+  <button *ngIf="!AuthService.getToken()" mat-menu-item><a class="dropdown-item" routerLink="/register" > Register</a></button>
+  <button *ngIf="!AuthService.getToken()" mat-menu-item><a class="dropdown-item" routerLink="/login" > Login</a></button>
+  <button *ngIf="AuthService.getToken()" mat-menu-item><a class="dropdown-item" routerLink="/profile" > Profile</a></button>
+  <button *ngIf="AuthService.getToken()" mat-menu-item (click)="logOut()"><a class="dropdown-item" routerLink="/profile" > LogOut</a></button>
 </mat-menu>
 </div>
 

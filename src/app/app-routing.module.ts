@@ -11,11 +11,9 @@ import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
+  
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
-  },
-  {
-    path: 'home', component: HomeComponent
+    path: '', component: HomeComponent
   },
   {
     path: 'alojamientos', component: AlojamientosComponent
