@@ -19,10 +19,12 @@ export class ReservaComponent {
   public bookingForm!: FormGroup;
   public payForm!: FormGroup;
   public user = {
-    name: "Paco",
-    surname: "Alonso"
+    name: "carlos33",
+    surname: "Alonso",
+    _id: "64ab22aebb6c9990c6e6d0a5"
   }
   public booking!: BookingI;
+  public bookingResponse!: any;
 
   constructor(private accommodationApi: AccommodationService, public AuthService: AuthService, private router: Router, private bookingApi: BookingService) {}
 
@@ -64,20 +66,19 @@ export class ReservaComponent {
 
   public clickIrAPagar() {
       console.log("click  ir a pagar");
-      // post booking
+
       this.submittedDetails = true;
       console.log("this.bookingForm.valid -->", this.bookingForm.valid);
       
       if (this.bookingForm.valid) {
-        this.bookingApi.setBooking(this.booking);
+        this.bookingApi.setBooking(this.booking); // set details of booking in service
         this.bookingForm.reset();
         }
-
     }
      
 
   public clickPagar() {
-    // post booking
+    // get booking data from service
     this.booking = this.bookingApi.getBooking();
     console.log("this.booking ----->", this.booking);
     this.isPaid = true;
@@ -90,12 +91,21 @@ export class ReservaComponent {
 
 
     if (this.bookingForm.valid && this.isPaid) {
-      this.bookingApi.postBooking(this.booking).subscribe((data) => {
-        console.log("posted data ---------", data);   
-        console.log("this.ispaid ----->", this.isPaid);
-     
-      });
-    };
 
+      // post booking in api
+      this.bookingApi.postBooking(this.booking).subscribe((data: any) => {
+        this.bookingResponse = data;
+      });
+      
+      console.log("booking response --------->", this.bookingResponse);
+      console.log("user id", this.user._id);
+      
+      // Put booking in user db
+      this.bookingApi.putUserBooking(this.user._id, this.bookingResponse._id).subscribe((data) => {
+        console.log("added booking to user ---------", data);   
+      });
+
+    }
   }
+
 }

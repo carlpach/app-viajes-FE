@@ -26,5 +26,9 @@ export class BookingService {
     postBooking(booking: BookingI) {
       return this.http.post(`${environment.db_url}/bookings`, booking);
     }
+
+    putUserBooking(userId: string, bookingId: string) {
+      return this.http.put(`${environment.db_url}/users/addBooking/${bookingId}`, userId);
+    }
   
 }
