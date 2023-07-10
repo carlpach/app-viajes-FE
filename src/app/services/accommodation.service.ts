@@ -36,6 +36,8 @@ export class AccommodationService {
   // set accommodation list searched by city by user
   public setAccommodSearched(accommodSearched: any){
     this.accommodSearched = accommodSearched;
+    // sessionStorage.setItem('AccommodSearched', accommodSearched);
+
   }
 
   public getAccommodSearched(){

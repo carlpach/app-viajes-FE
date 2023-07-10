@@ -21,23 +21,23 @@ export class AuthService {
   }
 
   getToken(){
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
 
   getUser(){
-    return localStorage.getItem('user');
+    return sessionStorage.getItem('user');
   }
 
   getRole(){
-    let user = JSON.parse(String(localStorage.getItem('user')));
+    let user = JSON.parse(String(sessionStorage.getItem('user')));
 
     return user?.role;
   }
 
   logOut(){
     // localStorage.clear(); //COn este borrariamos todo en localstorage
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
   }
 
   checkSession(){

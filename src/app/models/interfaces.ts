@@ -34,7 +34,7 @@ export interface BookingI {
   _id: string,
   bookingCode: number,
   name: string,
-  surname: string,
+  lastname: string,
   dateEntry: string,
   dateDeparture: string,
   nights: number,

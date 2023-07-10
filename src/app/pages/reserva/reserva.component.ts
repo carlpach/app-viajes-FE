@@ -13,16 +13,12 @@ import { BookingService } from 'src/app/services/booking.service';
 })
 export class ReservaComponent {
 
+  public user: any;
   public submittedDetails: boolean = false;
   public isPaid: boolean = false;
   public room!: RoomI;
   public bookingForm!: FormGroup;
   public payForm!: FormGroup;
-  public user = {
-    name: "carlos33",
-    surname: "Alonso",
-    _id: "64ab22aebb6c9990c6e6d0a5"
-  }
   public booking!: BookingI;
   public bookingResponse!: any;
 
@@ -35,11 +31,13 @@ export class ReservaComponent {
     console.log("accommod is -------", this.accommodationApi.getAccommodSelected());
 
     // this.user = this.AuthService.getUser();
-    this.user = this.user;
+    this.user = JSON.parse(String(this.AuthService.getUser()));
+    console.log(this.user);
+    
 
     this.bookingForm = new FormGroup({
       name: new FormControl(this.user.name),
-      surname: new FormControl(this.user.surname),
+      lastname: new FormControl(this.user.lastname),
       peticiones: new FormControl('')
 
     });
@@ -54,7 +52,7 @@ export class ReservaComponent {
 
     this.payForm = new FormGroup({
       name: new FormControl(this.user.name),
-      surname: new FormControl(this.user.surname),
+      lastname: new FormControl(this.user.lastname),
       numeroTarjeta: new FormControl(),
       FechaCaducidad: new FormControl(),
       CVC: new FormControl()
