@@ -8,7 +8,10 @@
     border-radius: 20px;
     position: relative;
 }
-
+a:link, a:visited {
+  text-decoration: none;
+  color: blue;
+}
 .title {
   font-size: 28px;
   color: royalblue;
