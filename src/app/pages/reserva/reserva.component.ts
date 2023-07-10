@@ -96,9 +96,11 @@ export class ReservaComponent {
       this.bookingApi.postBooking(this.booking).subscribe((data: any) => {
         console.log(data);
         console.log("user id", this.user._id);
-        
+        const userId = {
+          _id: this.user._id
+        }
         // Put booking in user db
-        this.bookingApi.putUserBooking(this.user._id, data._id).subscribe((data) => {
+        this.bookingApi.putUserBooking(userId, data._id).subscribe((data) => {
           console.log("added booking to user ---------", data);   
         });
     });
