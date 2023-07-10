@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
@@ -30,6 +31,7 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
     HomeComponent,
     AlojamientosComponent,
     AlojamientoComponent,
+    ProfileComponent,
     ReservaComponent,
     ConfirmationComponent
   ],
@@ -45,7 +47,7 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+
   ],
 
   providers: [],

@@ -82,7 +82,7 @@ export class ReservaComponent {
     console.log("this.booking ----->", this.booking);
     this.isPaid = true;
 
-    this.booking.bookingCode = Math.floor(Math.random()*10000);
+    this.booking.bookingCode = Math.floor(Math.random()*1000000);
     this.booking.dateEntry = this.accommodationApi.accommodDataSearch.checkin;
     this.booking.dateDeparture = this.accommodationApi.accommodDataSearch.checkout;
     this.booking.room = this.room._id;
