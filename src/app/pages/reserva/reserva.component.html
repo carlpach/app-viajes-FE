@@ -21,14 +21,20 @@ details booking room
         <label></label>
         <input formControlName="name" type="text"/>
         <input formControlName="surname" type="text"/>
-        <input placeholder="Num Tarjeta" formControlName="numeroTarjeta" type="number"/>
+        <input placeholder="Num Tarjeta" formControlName="numeroTarjeta" type="text"/>
+        <p *ngIf="(submittedPayForm && payForm?.get('numeroTarjeta')?.hasError('required'))">Este campo es requerido</p>
+        <p *ngIf="(submittedPayForm && payForm?.get('numeroTarjeta')?.hasError('pattern'))">Insertar formato 4XXX XXXX XXXX XXXX</p>
         <input placeholder="DD / MM" formControlName="FechaCaducidad" type="text"/>
-        <input placeholder="CVC" formControlName="CVC" type="number"/>
+        <p *ngIf="(submittedPayForm && payForm?.get('FechaCaducidad')?.hasError('pattern'))">Insertar formato MM/YY o MMYY</p>
+        <input placeholder="CVC" formControlName="CVC" type="text"/>
+        <p *ngIf="(submittedPayForm && payForm?.get('CVC')?.hasError('pattern'))">Insertar numero de 3  o 4 cifras</p>
+        <p *ngIf="(submittedPayForm && payForm?.get('CVC')?.hasError('required'))">Este campo es requerido</p>
 
         <button>Completar la reserva</button>
     </form> 
 
-</div>  
+</div>
+
 
 <div *ngIf="isPaid">
     <app-confirmation></app-confirmation>

@@ -23,8 +23,8 @@ const routes: Routes = [
   {
     path:'reserva', component: ReservaComponent
   },
-  {path:'register', component:RegisterComponent},
-  {path:'login', component:LoginComponent},
+  {path:'register', component: RegisterComponent},
+  {path:'login', component: LoginComponent},
 ];
 
 @NgModule({
