@@ -1,13 +1,14 @@
+<h2>Inicia sesión</h2>
 <form [formGroup]="loginForm" class="login" (ngSubmit)="onSubmit()">
   <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label"> Email </label>
-      <input formControlName="email" type="text" class="form-control" id="exampleFormControlInput1" placeholder="email@email.com">
+      <label for="exampleFormControlInput1" class="form-label"> E-mail </label>
+      <p><input formControlName="email" type="text" class="form-control" id="exampleFormControlInput1" placeholder="email@email.com"></p>
       <p *ngIf="(submitted && loginForm?.get('email')?.hasError('required'))">Este campo es requerido</p>
       <p *ngIf="(submitted && loginForm?.get('email')?.hasError('pattern'))">No cumple el formato de email</p>
   </div>
   <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label"> Password </label>
-      <input formControlName="password" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Password123!">
+      <label for="exampleFormControlInput1" class="form-label"> Contraseña </label>
+      <p><input formControlName="password" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contraseña123!"></p>
       <p *ngIf="(submitted && loginForm?.get('password')?.hasError('required'))">Este campo es requerido</p>
       <p *ngIf="(submitted && loginForm?.get('password')?.hasError('pattern'))">No cumple el formato de password(1 mayuscula, 1 minuscula, 1 numero y 1 caracter especial)</p>
   </div>
@@ -18,3 +19,4 @@
       <p>erorr en los datos de login</p>
   </div>
 </form>
+

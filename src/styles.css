@@ -4,6 +4,9 @@
   margin: 0;
   list-style: none;
 }
+a:link, a:visited {
+  text-decoration: none;
+}
 
 html, body {
   height: 100%;
