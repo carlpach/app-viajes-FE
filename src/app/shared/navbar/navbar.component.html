@@ -9,7 +9,7 @@
   <button mat-menu-item><a class="dropdown-item" routerLink="/alojamientos"> Alojamientos </a></button>
   <button mat-menu-item><a class="dropdown-item" routerLink="/register" *ngIf="!token"> Register</a></button>
   <button mat-menu-item><a class="dropdown-item" routerLink="/login" *ngIf="!token"> Login</a></button>
-  <button mat-menu-item><a class="dropdown-item" routerLink="/login" *ngIf="token" (click)="logout()"> Logout</a></button>
+  <button mat-menu-item><a class="dropdown-item" routerLink="/login" *ngIf="token"> Logout</a></button>
   <button mat-menu-item><a class="dropdown-item" routerLink="/profile"> Profile</a></button>
 </mat-menu>
 </div>
