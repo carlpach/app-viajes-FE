@@ -24,6 +24,10 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
+  getUser(){
+    return localStorage.getItem('user');
+  }
+
   getRole(){
     let user = JSON.parse(String(localStorage.getItem('user')));
 
@@ -34,10 +38,6 @@ export class AuthService {
     // localStorage.clear(); //COn este borrariamos todo en localstorage
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-  }
-
-  getLibros(){
-    return this.http.get(`${environment.db_url}/libros`);
   }
 
   checkSession(){

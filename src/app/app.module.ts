@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +18,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { ReservasComponent } from '../app/pages/reservas/reservas.component';
 
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ReservaComponent } from './pages/reserva/reserva.component';
+import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
 
 
@@ -30,7 +34,11 @@ import { ReservasComponent } from '../app/pages/reservas/reservas.component';
     HomeComponent,
     AlojamientosComponent,
     AlojamientoComponent,
-    ReservasComponent,
+
+    ProfileComponent,
+    ReservaComponent,
+    ConfirmationComponent
+
   ],
 
   imports: [
@@ -39,12 +47,13 @@ import { ReservasComponent } from '../app/pages/reservas/reservas.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    MatButtonModule, 
+    MatMenuModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+
   ],
 
   providers: [],

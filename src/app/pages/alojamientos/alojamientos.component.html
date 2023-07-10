@@ -2,7 +2,7 @@
 
 <div class="container">
     <ul class="list">
-        <li class="itemlist" *ngFor="let alojamiento of alojamientosList" routerLink="/habitacion/{{alojamiento._id}}">
+        <li class="itemlist" *ngFor="let alojamiento of alojamientosList" (click)="clickAlojamientoDetalle(alojamiento)">
             <h3>{{alojamiento.name}}</h3>
             <p>{{alojamiento.location}}</p>
             <img src="{{alojamiento.mainImage}}" alt="{{alojamiento.name}}" />
