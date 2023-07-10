@@ -1,9 +1,14 @@
+import { Injectable } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
 import { UserI } from '../../models/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-login',
@@ -38,7 +43,7 @@ export class LoginComponent {
           // localStorage.setItem('user', JSON.stringify(data.user));
           sessionStorage.setItem('token', data.token);
           sessionStorage.setItem('user', JSON.stringify(data.user));
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
 
         },(error)=>{this.error=error})
       }
