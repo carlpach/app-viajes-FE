@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AlojamientosComponent } from './pages/alojamientos/alojamientos.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
 import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   
@@ -16,13 +16,13 @@ const routes: Routes = [
     path: '', component: HomeComponent
   },
   {
-    path: 'alojamientos', component: AlojamientosComponent
+    path: 'alojamientos', component: AlojamientosComponent, canActivate: [authGuard]
   },
   {
-    path:'alojamiento', component: AlojamientoComponent
+    path:'alojamiento', component: AlojamientoComponent, canActivate: [authGuard]
   },
   {
-    path:'reserva', component: ReservaComponent
+    path:'reserva', component: ReservaComponent, canActivate: [authGuard]
   },
   {
     path:'register', component:RegisterComponent
@@ -31,7 +31,7 @@ const routes: Routes = [
     path:'login', component:LoginComponent
   },
   {
-    path:'profile', component: ProfileComponent
+    path:'profile', component: ProfileComponent, canActivate: [authGuard]
   }
 ];
 
