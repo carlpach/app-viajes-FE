@@ -12,14 +12,14 @@
         <label>
             <input required="" formControlName="lastname" placeholder="Lastname" type="text" class="input">
         </label>
-    </div>  
-            
+    </div>
+
     <label>
         <input required="" formControlName="email" placeholder="Email" type="email" class="input">
         <p *ngIf="(submitted && registerForm?.get('email')?.hasError('required'))">Este campo es requerido</p>
         <p *ngIf="(submitted && registerForm?.get('email')?.hasError('pattern'))">No cumple el formato de email</p>
-    </label> 
-        
+    </label>
+
     <label>
         <input required="" formControlName="password" placeholder="Password" type="password" class="input">
         <p *ngIf="(submitted && registerForm?.get('password')?.hasError('required'))">Este campo es requerido</p>
@@ -31,6 +31,6 @@
         <p *ngIf="(submitted && registerForm?.get('password')?.hasError('pattern'))">No cumple el formato de password(1 mayuscula, 1 minuscula, 1 numero y 1 caracter especial)</p>
     </label>
     <button class="submit">Submit</button>
-    <p class="signin">Already have an acount ? <a href="/login">Signin</a> </p>
+    <p class="signin">Already have an acount ? <a href="/login">Sign in</a> </p>
     <p>Al crear una cuenta, aceptas nuestros <a href=""> Términos y condiciones</a> y la <a href=""> Política de privacidad</a></p>
 </form>
