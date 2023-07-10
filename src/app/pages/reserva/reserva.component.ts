@@ -14,6 +14,7 @@ import { BookingService } from 'src/app/services/booking.service';
 export class ReservaComponent {
 
   public submittedDetails: boolean = false;
+  public submittedPayForm: boolean = false;
   public isPaid: boolean = false;
   public room!: RoomI;
   public bookingForm!: FormGroup;
@@ -55,10 +56,9 @@ export class ReservaComponent {
     this.payForm = new FormGroup({
       name: new FormControl(this.user.name),
       surname: new FormControl(this.user.surname),
-      numeroTarjeta: new FormControl(),
-      FechaCaducidad: new FormControl(),
-      CVC: new FormControl()
-
+      numeroTarjeta: new FormControl("", [Validators.required, Validators.pattern('^4[0-9]{12}(?:[0-9]{3})?$')]),
+      FechaCaducidad: new FormControl("", [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$')]),
+      CVC: new FormControl("", [Validators.required, Validators.pattern('^[0-9]{3,4}$')]),
     });
 
     
@@ -67,10 +67,10 @@ export class ReservaComponent {
   public clickIrAPagar() {
       console.log("click  ir a pagar");
 
-      this.submittedDetails = true;
       console.log("this.bookingForm.valid -->", this.bookingForm.valid);
       
       if (this.bookingForm.valid) {
+        this.submittedDetails = true;
         this.bookingApi.setBooking(this.booking); // set details of booking in service
         this.bookingForm.reset();
         }
@@ -80,8 +80,9 @@ export class ReservaComponent {
   public clickPagar() {
     // get booking data from service
     this.booking = this.bookingApi.getBooking();
-    console.log("this.booking ----->", this.booking);
-    this.isPaid = true;
+    console.log("payForm ----->", this.payForm.valid);
+    // this.isPaid = true;
+    this.submittedPayForm = true;
 
     this.booking.bookingCode = Math.floor(Math.random()*1000000);
     this.booking.dateEntry = this.accommodationApi.accommodDataSearch.checkin;
@@ -90,7 +91,9 @@ export class ReservaComponent {
     // delete this.booking.CVC;
 
 
-    if (this.bookingForm.valid && this.isPaid) {
+    if (this.payForm.valid) {
+
+      this.isPaid = true;
 
       // post booking in api
       this.bookingApi.postBooking(this.booking).subscribe((data: any) => {
