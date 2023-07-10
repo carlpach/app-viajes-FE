@@ -1,3 +1,5 @@
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { environment } from '../app/environments/environment.local';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatMenuModule} from '@angular/material/menu';
@@ -13,7 +15,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -39,7 +41,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 
     ProfileComponent,
     ReservaComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
 
   ],
 
@@ -49,7 +51,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatMenuModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -59,7 +61,11 @@ import { GoogleMapsModule } from '@angular/google-maps';
 
   ],
 
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
