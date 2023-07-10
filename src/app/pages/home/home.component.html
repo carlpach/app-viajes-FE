@@ -1,6 +1,4 @@
-<p>home works!</p>
-
-<form [formGroup]="searchForm" (ngSubmit) = "searchAccommodation()">
+<form class="search-form" [formGroup]="searchForm" (ngSubmit) = "searchAccommodation()">
     <div>
         <input placeholder="City" formControlName="city" type="text"/>
         <p *ngIf="(submitted && searchForm?.get('city')?.hasError('required'))">Este campo es requerido</p>
