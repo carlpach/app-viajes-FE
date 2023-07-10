@@ -1,8 +1,6 @@
 import { AuthService } from './../../services/auth.service';
-import { Component, HostListener, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { NavigationEnd, Router } from '@angular/router';
-import { NavbarService } from 'src/app/services/navbar.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +12,7 @@ export class NavbarComponent implements OnInit{
 constructor(private router:Router, public AuthService:AuthService){}
 
   ngOnInit(): void {
-    
+
   }
 
   logOut(){

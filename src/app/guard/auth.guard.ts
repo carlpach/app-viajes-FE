@@ -1,4 +1,3 @@
-
 import { ActivatedRouteSnapshot, CanActivateFn,CanActivate, Router, RouterEvent, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../services/auth.service';
@@ -21,6 +20,7 @@ export class authGuard implements CanActivate {
     if(!this.authApi.getToken())
     {
       this.router.navigate(['/login']);
+      return false;
     }
     return true;
   }

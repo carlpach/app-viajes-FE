@@ -25,9 +25,9 @@ export class LoginComponent {
       email: ["", [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ["", [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$')]]
     })
-    if(this.authApi.getToken()){
-      this.router.navigate(['/']);
-    }
+    // if(this.authApi.getToken()){
+    //   this.router.navigate(['/']);
+    // }
 
   }
 
@@ -41,9 +41,9 @@ export class LoginComponent {
           console.log(data);
           // localStorage.setItem('token', data.token);
           // localStorage.setItem('user', JSON.stringify(data.user));
-          sessionStorage.setItem('token', data.token);
-          sessionStorage.setItem('user', JSON.stringify(data.user));
-          this.router.navigate(['/home']);
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          this.router.navigate(['/']);
 
         },(error)=>{this.error=error})
       }

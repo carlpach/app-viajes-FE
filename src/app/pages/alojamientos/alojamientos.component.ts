@@ -14,7 +14,7 @@ export class AlojamientosComponent {
   alojamientosList: AccommodationsI[] = [];
   token:any;
 
-  constructor(private accommodationApi: AccommodationService, public AuthService:AuthService, private router: Router) {
+  constructor(private accommodationApi: AccommodationService, public authService:AuthService, private router: Router) {
     // this.token=this.AuthService.getToken()
     // console.log(this.token)
 
@@ -28,9 +28,10 @@ export class AlojamientosComponent {
     // })
 
     // get alojamientos searched from service
+
     this.alojamientosList = this.accommodationApi.getAccommodSearched();
     console.log(this.alojamientosList);
-    
+
   }
 
   clickAlojamientoDetalle(accommodSelected: AccommodationsI) {

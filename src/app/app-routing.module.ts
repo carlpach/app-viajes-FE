@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AlojamientosComponent } from './pages/alojamientos/alojamientos.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
