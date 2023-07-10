@@ -53,7 +53,7 @@ export class ReservaComponent {
 
     this.payForm = new FormGroup({
       name: new FormControl(this.user.name),
-      surname: new FormControl(this.user.surname),
+      lastname: new FormControl(this.user.lastname),
       numeroTarjeta: new FormControl("", [Validators.required, Validators.pattern('^4[0-9]{12}(?:[0-9]{3})?$')]),
       FechaCaducidad: new FormControl("", [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$')]),
       CVC: new FormControl("", [Validators.required, Validators.pattern('^[0-9]{3,4}$')]),

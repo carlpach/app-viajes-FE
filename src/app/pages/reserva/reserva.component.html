@@ -1,9 +1,6 @@
-<p>reserva works!</p>
-
-
-details booking room
 
 <div *ngIf="!submittedDetails" >
+    <h2>details booking room</h2>
     <form [formGroup]="bookingForm"  (ngSubmit)="clickIrAPagar()" >
         <input placeholder="Nombre" formControlName="name" type="text"/>
         <input placeholder="Apellido" formControlName="lastname" type="text"/>
@@ -21,8 +18,8 @@ details booking room
         <label></label>
         <input formControlName="name" type="text"/>
         <p *ngIf="(submittedPayForm && payForm?.get('name')?.hasError('required'))">Este campo es requerido</p>
-        <input formControlName="surname" type="text"/>
-        <p *ngIf="(submittedPayForm && payForm?.get('surname')?.hasError('required'))">Este campo es requerido</p>
+        <input formControlName="lastname" type="text"/>
+        <p *ngIf="(submittedPayForm && payForm?.get('lastname')?.hasError('required'))">Este campo es requerido</p>
         <input placeholder="Num Tarjeta" formControlName="numeroTarjeta" type="text"/>
         <p *ngIf="(submittedPayForm && payForm?.get('numeroTarjeta')?.hasError('required'))">Este campo es requerido</p>
         <p *ngIf="(submittedPayForm && payForm?.get('numeroTarjeta')?.hasError('pattern'))">Insertar formato 4XXX XXXX XXXX XXXX</p>
