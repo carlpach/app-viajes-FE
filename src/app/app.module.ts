@@ -1,4 +1,5 @@
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { environment } from '../app/environments/environment.local';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatMenuModule} from '@angular/material/menu';
@@ -38,7 +39,7 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
 
     ProfileComponent,
     ReservaComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
 
   ],
 
