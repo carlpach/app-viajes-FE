@@ -7,12 +7,14 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AlojamientosComponent } from './pages/alojamientos/alojamientos.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
-import { authGuard } from './guard/auth.guard';
 import { ReservaComponent } from './pages/reserva/reserva.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent
+    path: '', redirectTo: 'login', pathMatch: 'full'
+  },
+  {
+    path: 'home', component: HomeComponent
   },
   {
     path: 'alojamientos', component: AlojamientosComponent
@@ -23,8 +25,12 @@ const routes: Routes = [
   {
     path:'reserva', component: ReservaComponent
   },
-  {path:'register', component:RegisterComponent},
-  {path:'login', component:LoginComponent},
+  {
+    path:'register', component:RegisterComponent
+  },
+  {
+    path:'login', component:LoginComponent
+  },
 ];
 
 @NgModule({
