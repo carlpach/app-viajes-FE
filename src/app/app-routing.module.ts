@@ -8,22 +8,23 @@ import { AlojamientosComponent } from './pages/alojamientos/alojamientos.compone
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
 import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
     path: '', redirectTo: 'login', pathMatch: 'full'
   },
   {
-    path: 'home', component: HomeComponent
+    path: 'home', component: HomeComponent, canActivate: [authGuard]
   },
   {
-    path: 'alojamientos', component: AlojamientosComponent
+    path: 'alojamientos', component: AlojamientosComponent, canActivate: [authGuard]
   },
   {
-    path:'alojamiento', component: AlojamientoComponent
+    path:'alojamiento', component: AlojamientoComponent, canActivate: [authGuard]
   },
   {
-    path:'reserva', component: ReservaComponent
+    path:'reserva', component: ReservaComponent, canActivate: [authGuard]
   },
   {
     path:'register', component:RegisterComponent
@@ -32,7 +33,7 @@ const routes: Routes = [
     path:'login', component:LoginComponent
   },
   {
-    path:'profile', component: ProfileComponent
+    path:'profile', component: ProfileComponent, canActivate: [authGuard]
   }
 ];
 
