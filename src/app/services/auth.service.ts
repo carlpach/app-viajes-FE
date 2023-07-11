@@ -33,6 +33,7 @@ export class AuthService {
 
     return user?.role;
   }
+  
 
   logOut(){
     // localStorage.clear(); //COn este borrariamos todo en localstorage

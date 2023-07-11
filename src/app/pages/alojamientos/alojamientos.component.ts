@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { AccommodationsI } from '../../models/interfaces';
 import { AccommodationService } from 'src/app/services/accommodation.service';
@@ -10,7 +10,7 @@ import { GoogleMap } from '@angular/google-maps';
   templateUrl: './alojamientos.component.html',
   styleUrls: ['./alojamientos.component.scss']
 })
-export class AlojamientosComponent {
+export class AlojamientosComponent implements OnInit {
 
   public citySearched: any;
   public startSearched: any;
@@ -28,14 +28,13 @@ export class AlojamientosComponent {
   mapOptions: google.maps.MapOptions = {
   };
 
-  constructor(private accommodationApi: AccommodationService, private AuthService:AuthService, private router: Router) {this.userRole = this.AuthService.getRole();}
+  constructor(private accommodationApi: AccommodationService, private AuthService:AuthService, private router: Router) {this.userRole = this.AuthService.getAccommodations();}
 
-  editarAlojamiento(accommodation: AccommodationsI) {
-    this.router.navigate(['/editar-alojamiento', accommodation._id]);
-    // Lógica para editar el alojamiento
-    // Puedes implementar aquí la lógica para abrir un formulario de edición, mostrar un modal, etc.
-    // Utiliza el objeto `accommodation` para obtener la información del alojamiento seleccionado.
-  };
+  ngOnInit(): void {
+    this.accommodationApi.getAccommodations().subscribe((data: any) => {
+      this.accommodationList = data;
+    })
+  }
 
   ngAfterViewInit(): void {
 
