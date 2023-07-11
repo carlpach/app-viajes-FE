@@ -26,6 +26,7 @@ import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
 import { GoogleMapsModule } from '@angular/google-maps';
+import { EditarAlojamientoComponent } from './editar-alojamiento/editar-alojamiento.component';
 
 
 
@@ -42,6 +43,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ProfileComponent,
     ReservaComponent,
     ConfirmationComponent,
+    EditarAlojamientoComponent,
 
   ],
 
