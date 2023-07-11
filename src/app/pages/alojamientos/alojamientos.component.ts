@@ -61,6 +61,15 @@ export class AlojamientosComponent {
     
   }
 
+  generateStarsArray(level: number): number[] {
+    return Array(level).fill(0).map((_, i) => i + 1);
+  }
+
+  generateNoStarsArray(level: number): number[] {
+    const levelReturn = Math.abs(level - 5)
+    return Array(levelReturn).fill(0).map((_, i) => i + 1);
+  }
+
   clickAlojamientoDetalle(accommodSelected: AccommodationsI) {
     this.accommodationApi.setAccommodSelected(accommodSelected);
     this.router.navigate(["/alojamiento"]);

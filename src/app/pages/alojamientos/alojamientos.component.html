@@ -11,6 +11,11 @@
         <img class="ul__img" src="{{ alojamiento.images[0] }}" alt="{{ alojamiento.name }}" />
         <h3>{{alojamiento.name}}</h3>
         <p>Desde {{ alojamiento.lowerPrice }} /noche</p>
+
+        <span *ngFor="let star of generateStarsArray(alojamiento.level)" class="fa fa-star checked">
+        </span>
+        <span *ngFor="let star of generateNoStarsArray(alojamiento.level)" class="fa fa-star unchecked">
+        </span>
         <button (click)="clickAlojamientoDetalle( alojamiento )">Reservar</button>
     </li>
 </ul>
