@@ -6,7 +6,6 @@
 <button class="boton" mat-button [matMenuTriggerFor]="menu">☰</button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item><a class="dropdown-item" routerLink="/"> Home </a></button>
-  <button mat-menu-item><a class="dropdown-item" routerLink="/alojamientos"> Alojamientos </a></button>
   <button *ngIf="!AuthService.getToken()" mat-menu-item><a class="dropdown-item" routerLink="/register" > Register</a></button>
   <button *ngIf="!AuthService.getToken()" mat-menu-item><a class="dropdown-item" routerLink="/login" > Login</a></button>
   <button *ngIf="AuthService.getToken()" mat-menu-item><a class="dropdown-item" routerLink="/profile" > Profile</a></button>
