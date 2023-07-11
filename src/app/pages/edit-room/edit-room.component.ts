@@ -24,28 +24,51 @@ export class EditRoomComponent {
     this.roomForm = this.form.group({
       name: [this.room.name, [Validators.required]],
       description:[this.room.description, [Validators.required]],
-      features: [this.room.features, [Validators.required]],
+      features: [this.room.features],
       price: [this.room.price, [Validators.required]],
-      images: [this.room.images, [Validators.required]],
+      images: [this.room.images ],
 
     })
 
     this.roomForm.valueChanges.subscribe((data) => {
       this.roomEdited = data;
+      console.log("roomEdited -----------", this.roomEdited);
     })
   }
 
 
   editarRoom(){
     this.submitted = true;
+    console.log("click edit room");
+    console.log(this.roomForm.valid);
     if(this.roomForm.valid){
-      this.accommodationApi.putRoom(this.room).subscribe((data) => {
-        console.log("returned data from put -----------", data);
-        this.roomForm.reset();
-        this.submitted = false;
-        this.router.navigate(["/"]);
-      })
+      this.accommodationApi.putRoom(this.roomEdited).subscribe(
+        (data) => {
+          console.log("returned data from put -----------", data);
+          this.roomForm.reset();
+          this.submitted = false;
+          this.router.navigate(["/"]);
+        },
+        (err) => { 
+          this.roomForm.reset();
+          this.submitted = false;
+          this.router.navigate(["/alojamiento"]);
+          console.log("error -------", err);
+        }
+      )
     }
   }
+
+  deleteRoom() {
+    const alojamiento = this.accommodationApi.getAccommodSelected();
+    for (const [ix, roomId] of alojamiento.rooms.entries()) {
+      if (roomId === this.room._id) {
+        delete alojamiento.rooms[ix];
+      }
+    }
+    console.log("alojamiento.rooms", alojamiento.rooms);
+    this.router.navigate(["/alojamiento"]);
+  }
+
 }
 

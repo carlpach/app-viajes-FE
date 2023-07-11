@@ -22,6 +22,8 @@ export class AlojamientoComponent {
     // this.token=this.AuthService.getToken()
     // console.log(this.token)
     this.userRole = this.AuthService.getRole();
+    console.log("user role --------", this.userRole);
+    
 
   }
 

@@ -59,10 +59,15 @@ export class AccommodationService {
   }
 
   
-  putRoom(updatedRoom: RoomI) {
+  public putRoom(updatedRoom: RoomI) {
     console.log("roomSelected --------->", this.roomSelected);
+    console.log("room id --------->", this.roomSelected._id);
     
-    return this.http.put(`${environment.db_url}/${this.roomSelected._id}`, updatedRoom);
+    return this.http.put(`${environment.db_url}/rooms/${this.roomSelected._id}`, updatedRoom);
+  }
+
+  public deleteRoom(rommId: string) {
+    return this.http.delete(`${environment.db_url}/rooms/${rommId}`);
   }
 
   // set room selected by user
