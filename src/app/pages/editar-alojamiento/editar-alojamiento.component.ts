@@ -10,36 +10,66 @@ import { AccommodationService } from 'src/app/services/accommodation.service';
   styleUrls: ['./editar-alojamiento.component.scss']
 })
 export class EditarAlojamientoComponent implements OnInit {
-  id!:number;
-  alojamiento!:AccommodationsI;
-  submitted: boolean = false;
   alojamientoForm!: FormGroup;
+  submitted = false;
 
-  constructor(private accommodationApi: AccommodationService, private form: FormBuilder, private router: Router){
-    this.alojamiento = this.accommodationApi.getMyAccommodation();
-    this.id = this.accommodationApi.getMyId();
-  }
+  constructor(
+    private formBuilder: FormBuilder,
+    private accommodationService: AccommodationService,
+    private router: Router
+  ) {}
+
   ngOnInit(): void {
-    this.alojamientoForm = this.form.group({
-      name: [this.alojamiento.name, [Validators.required]],
-      city:[this.alojamiento.city, [Validators.required]],
-      lowerPrice: [this.alojamiento.lowerPrice, [Validators.required]],
-      type: [this.alojamiento.type, [Validators.required]],
-      level: [this.alojamiento.level, [Validators.required]],
-      location: [this.alojamiento.location, [Validators.required]],
-      images: [this.alojamiento.images, [Validators.required]],
-      rooms: [this.alojamiento.rooms, [Validators.required]]
-    })
+    const alojamientoSelected = this.accommodationService.getAccommodSelected();
+    if (!alojamientoSelected) {
+      // Manejar el caso en que no haya alojamiento seleccionado
+      return;
+    }
 
-    this.alojamientoForm.valueChanges.subscribe((data) => {
-      this.alojamiento = data;
-    })
+    this.alojamientoForm = this.formBuilder.group({
+      name: [alojamientoSelected.name, Validators.required],
+      city: [alojamientoSelected.city, Validators.required],
+      lowerPrice: [alojamientoSelected.lowerPrice, Validators.required],
+      type: [alojamientoSelected.type, Validators.required],
+      level: [alojamientoSelected.level, Validators.required],
+      location: [alojamientoSelected.location, Validators.required],
+      images: [alojamientoSelected.images, Validators.required],
+      rooms: [alojamientoSelected.rooms, Validators.required]
+    });
   }
 
+  get formControls() {
+    return this.alojamientoForm.controls;
+  }
 
   editarAlojamiento() {
     this.submitted = true;
     if (this.alojamientoForm.invalid) {
       return;
     }
+
+    const alojamientoSelected = this.accommodationService.getAccommodSelected();
+    if (!alojamientoSelected) {
+      // Manejar el caso en que no haya alojamiento seleccionado
+      return;
+    }
+
+    const editedAlojamiento: AccommodationsI = {
+      ...alojamientoSelected,
+      ...this.alojamientoForm.value
+    };
+
+    this.accommodationService
+      .putAccommodation(editedAlojamiento, alojamientoSelected._id)
+      .subscribe(
+        () => {
+          this.alojamientoForm.reset();
+          this.submitted = false;
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          // Manejar el error en caso de fallo en la actualización del alojamiento
+        }
+      );
+  }
 }

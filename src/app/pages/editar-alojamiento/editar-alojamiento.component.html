@@ -1,38 +1,54 @@
-<form [formGroup]="accommodationForm" (ngSubmit) = "editarAlojamiento()">
+<form [formGroup]="alojamientoForm" (ngSubmit)="editarAlojamiento()">
   <div>
-      <input placeholder="nombre" formControlName="name" type="text"/>
-      <p *ngIf="(submitted && accommodationForm?.get('name')?.hasError('required'))">Este campo es requerido</p>
+    <input placeholder="nombre" formControlName="name" type="text" />
+    <p *ngIf="formControls.name.hasError('required') && submitted">
+      Este campo es requerido
+    </p>
   </div>
   <div>
-      <input placeholder="ciudad" formControlName="city" type="text"/>
-      <p *ngIf="(submitted && accommodationForm?.get('city')?.hasError('required'))">Este campo es requerido</p>
+    <input placeholder="ciudad" formControlName="city" type="text" />
+    <p *ngIf="formControls.city.hasError('required') && submitted">
+      Este campo es requerido
+    </p>
   </div>
   <div>
-      <input placeholder="precio" formControlName="lowerPrice" type="number"/>
-      <p *ngIf="(submitted && accommodationForm?.get('lowerPrice')?.hasError('required'))">Este campo es requerido</p>
+    <input placeholder="precio" formControlName="lowerPrice" type="number" />
+    <p *ngIf="formControls.lowerPrice.hasError('required') && submitted">
+      Este campo es requerido
+    </p>
   </div>
   <div>
-      <input placeholder="tipo" formControlName="type" type="text"/>
-      <p *ngIf="(submitted && accommodationForm?.get('type')?.hasError('required'))">Este campo es requerido</p>
+    <input placeholder="tipo" formControlName="type" type="text" />
+    <p *ngIf="formControls.type.hasError('required') && submitted">
+      Este campo es requerido
+    </p>
   </div>
   <div>
-    <input placeholder="nivel" formControlName="level" type="number"/>
-    <p *ngIf="(submitted && accommodationForm?.get('level')?.hasError('required'))">Este campo es requerido</p>
-</div>
-<div>
-  <input placeholder="ubicación" formControlName="location" type="number"/>
-  <p *ngIf="(submitted && accommodationForm?.get('location')?.hasError('required'))">Este campo es requerido</p>
-</div>
-<div>
-  <input placeholder="imágenes" formControlName="images" type="text"/>
-  <p *ngIf="(submitted && accommodationForm?.get('images')?.hasError('required'))">Este campo es requerido</p>
-</div>
-<div>
-  <input placeholder="habitaciones" formControlName="rooms" type="schema"/>
-  <p *ngIf="(submitted && accommodationForm?.get('rooms')?.hasError('required'))">Este campo es requerido</p>
-</div>
-  <button>Guardar cambios</button>
-  <button>Borrar alojamiento</button>
+    <input placeholder="nivel" formControlName="level" type="number" />
+    <p *ngIf="formControls.level.hasError('required') && submitted">
+      Este campo es requerido
+    </p>
+  </div>
+  <div>
+    <input placeholder="ubicación" formControlName="location" type="number" />
+    <p *ngIf="formControls.location.hasError('required') && submitted">
+      Este campo es requerido
+    </p>
+  </div>
+  <div>
+    <input placeholder="imágenes" formControlName="images" type="text" />
+    <p *ngIf="formControls.images.hasError('required') && submitted">
+      Este campo es requerido
+    </p>
+  </div>
+  <div>
+    <input placeholder="habitaciones" formControlName="rooms" type="schema" />
+    <p *ngIf="formControls.rooms.hasError('required') && submitted">
+      Este campo es requerido
+    </p>
+  </div>
+  <button type="submit">Guardar cambios</button>
+  <button (click)="borrarAlojamiento()">Borrar alojamiento</button>
 </form>
 
 
