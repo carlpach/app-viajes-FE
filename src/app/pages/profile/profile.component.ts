@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ProfileComponent implements OnInit{
 booking!: BookingI
-_id: any
+
 user: any
 books: any [] = []
   constructor(private authApi: AuthService, private accommodationApi: AccommodationService, private router: Router){}
@@ -27,13 +27,6 @@ books: any [] = []
       })}
   }
   
-  deleteBooking(){
-    this.accommodationApi.deleteBooking(this._id).subscribe((data) => {
-      console.log("Reserva cancelada");
-      this.router.navigate(["/profile"]);
-    })
-  }
-
-  
+ 
 
 }

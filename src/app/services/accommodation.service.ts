@@ -71,9 +71,23 @@ export class AccommodationService {
     public getBookingsByID(_id: String){
       return this.http.get(`${environment.db_url}/bookings/id/${_id}`);
     }
-    
+    public putBookings(booking: BookingI, _id: String){
+      return this.http.put(`${environment.db_url}/bookings/${_id}`, booking);
+    }
+
+    setBookings(booking: BookingI, _id: String){
+      this.booking = booking;
+      this._id = _id;
+    }
     
     deleteBooking(_id: String){
       return this.http.delete(`${environment.db_url}/bookings/${_id}`);
+    }
+
+    getMyBooking(){
+      return this.booking;
+    }
+    getMyId(){
+      return this._id;
     }
 }
