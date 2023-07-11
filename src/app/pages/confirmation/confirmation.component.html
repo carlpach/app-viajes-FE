@@ -1,6 +1,8 @@
 <div>
-    <h1>Confirmacion reserva</h1>
-    <h2>El pago se ha realizado</h2>
+    <h1>Reserva confirmada en hotel {{ booking.nameAlojamiento }}</h1>
 
-    <h3>Codigo de reserva: {{ booking.bookingCode }}</h3>
+    <h2>El pago se ha realizado correctamente</h2>
+
+    <h3>Código de reserva: {{ booking.bookingCode }}</h3>
+    <h3>Recibiras un email en tu cuenta {{ user.email }}</h3>
 </div>
