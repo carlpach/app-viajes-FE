@@ -39,8 +39,10 @@ export interface BookingI {
   nights: number,
   people: number,
   timeCheckin: string,
+  nameAlojamiento: string,
   petitionCustomer: string,
   image: string,
+  price: number,
   room: string,
 
 }
