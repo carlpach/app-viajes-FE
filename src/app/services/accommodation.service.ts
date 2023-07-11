@@ -75,4 +75,8 @@ export class AccommodationService {
     return this.roomSelected;
   }
 
+    public getBookingsByID(id: string){
+      return this.http.get(`${environment.db_url}/bookings/id/${id}`);
+    }
+
 }

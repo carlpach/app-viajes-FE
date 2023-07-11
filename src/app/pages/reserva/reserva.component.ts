@@ -123,7 +123,8 @@ export class ReservaComponent {
         }
         // Put booking in user db
         this.bookingApi.putUserBooking(userId, data._id).subscribe((data) => {
-          console.log("added booking to user: ---------", data);   
+          console.log("added booking to user: ---------", data);  
+          sessionStorage.setItem('user', JSON.stringify(data)); 
         });
 
         // send email to user

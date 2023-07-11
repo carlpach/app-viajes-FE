@@ -42,10 +42,16 @@
 .misReservas{
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: stretch;
     background: rgb(230, 230, 230);
-    border-radius: 10%;
+    border-radius: 16%;
     margin-right: 10px;
+    padding: 14px;
+    margin-bottom: 7px;
+    img{
+        max-width: 124px;
+        border-radius: 5%;
+    }
     
 }
 button{
@@ -54,3 +60,16 @@ button{
     background: rgb(230, 230, 230);
 }
 
+.personal{
+    display: flex;
+    gap: 5px;
+}
+.img{
+    display: flex;
+    flex-direction: column;
+}
+.svg{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
