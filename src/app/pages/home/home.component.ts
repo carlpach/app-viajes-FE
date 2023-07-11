@@ -26,10 +26,10 @@ export class HomeComponent {
 
   ngOnInit() {
     this.searchForm = new FormGroup({
-      city: new FormControl(''),
+      city: new FormControl('', [Validators.required]),
       start: new FormControl(new Date(year, month, 13)),
       end: new FormControl(new Date(year, month, 16)),
-      people: new FormControl()
+      people: new FormControl(null, [Validators.required])
     });
 
     sessionStorage.removeItem('city');

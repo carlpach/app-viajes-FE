@@ -42,13 +42,14 @@ export class AlojamientosComponent {
 
     // get alojamientos searched from service
     this.alojamientosList = this.accommodationApi.getAccommodSearched();
-    console.log(this.alojamientosList);
+    console.log("alojamientoList", this.alojamientosList);
+    console.log("alojamientoList length", this.alojamientosList.length == 0);
 
     // zoom to existing markers
     let bounds = new google.maps.LatLngBounds();
     console.log(this.alojamientosList!);
 
-    if (this.alojamientosList) {  
+    if (this.alojamientosList.length > 0) {  
       for (let alojamiento of this.alojamientosList) {
         let latLng = new google.maps.LatLng(alojamiento.location.lat, alojamiento.location.lng);
         bounds.extend(latLng);  

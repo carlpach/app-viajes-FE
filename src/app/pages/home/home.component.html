@@ -10,13 +10,12 @@
   <div class="date-range">
     <mat-form-field class="example-form-field">
       <mat-label>Dates</mat-label>
-      <mat-date-range-input [formGroup]="searchForm" [rangePicker]="campaignOnePicker">
+      <mat-date-range-input [formGroup]="searchForm" [rangePicker]="dateHotelPicker">
         <input matStartDate placeholder="Start date" formControlName="start" />
         <input matEndDate placeholder="End date" formControlName="end" />
       </mat-date-range-input>
-      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
-      <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+      <mat-datepicker-toggle matIconSuffix [for]="dateHotelPicker"></mat-datepicker-toggle>
+      <mat-date-range-picker #dateHotelPicker></mat-date-range-picker>
     </mat-form-field>
   </div>
 
