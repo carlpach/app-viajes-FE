@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.local';
-import { AccommodationsI, RoomI } from "../models/interfaces";
+import { AccommodationsI, BookingI, RoomI } from "../models/interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ export class AccommodationService {
 
   private db_url = `${environment.db_url}/accommodation`;
   public placeholderImg: string =  "https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg";
-
-
+  _id: any
+  booking!: BookingI;
   accommodDataSearch: any;
   accommodSearched!: AccommodationsI[];
   accommodSelected!: AccommodationsI;
@@ -68,8 +68,12 @@ export class AccommodationService {
       return this.roomSelected;
     }
 
-    public getBookingsByID(id: string){
-      return this.http.get(`${environment.db_url}/bookings/id/${id}`);
+    public getBookingsByID(_id: String){
+      return this.http.get(`${environment.db_url}/bookings/id/${_id}`);
     }
-
+    
+    
+    deleteBooking(_id: String){
+      return this.http.delete(`${environment.db_url}/bookings/${_id}`);
+    }
 }

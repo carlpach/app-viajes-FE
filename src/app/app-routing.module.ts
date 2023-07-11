@@ -9,6 +9,7 @@ import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component'
 import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { authGuard } from './guard/auth.guard';
+import { EditBookingComponent } from './pages/edit-booking/edit-booking.component';
 
 const routes: Routes = [
 
@@ -32,7 +33,11 @@ const routes: Routes = [
   },
   {
     path:'profile', component: ProfileComponent, canActivate: [authGuard]
-  }
+  },
+  {
+    path:':_id', component: EditBookingComponent
+  },
+  
 ];
 
 @NgModule({
