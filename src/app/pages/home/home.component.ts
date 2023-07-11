@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AccommodationService } from 'src/app/services/accommodation.service';
 import { date_TO_String } from 'src/utils/utils';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 const today = new Date();
@@ -18,9 +19,10 @@ const year = today.getFullYear();
 export class HomeComponent {
   submitted: boolean = false;
   searchForm!: FormGroup;
+  public user: any;
 
 
-  constructor (private accommodationApi: AccommodationService, private router: Router) {
+  constructor (private accommodationApi: AccommodationService, private router: Router, public AuthService: AuthService) {
 
   }
 
@@ -37,6 +39,8 @@ export class HomeComponent {
     sessionStorage.removeItem('end');
     sessionStorage.removeItem('people');
     sessionStorage.removeItem('nights');
+
+    this.user = this.AuthService.getUser();
 
   }
 

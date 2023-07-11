@@ -52,12 +52,6 @@ li {
     color: grey;
 }
 
-mat-slider {
-    width: 80%;
-
-}
-
-
 .b-button {
     border: none;
     background-color: rgb(250,107,107);
@@ -68,12 +62,12 @@ mat-slider {
     font-size: 20px;
 }
 
-input[range] {
-    color: rgb(25, 190, 149);
+mat-slider {
+    width: 80%;
 }
 
 .mat-mdc-slider.mat-primary {
-    --mdc-slider-handle-color: rgb(25, 190, 149);
-    --mdc-slider-active-track-color: rgb(42, 201, 161);
+    --mdc-slider-handle-color: rgb(250,107,107);
+    --mdc-slider-active-track-color: rgb(253, 162, 162);
     --mdc-slider-focus-handle-color: rgb(236, 78, 78);
 }
