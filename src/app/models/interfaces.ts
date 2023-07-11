@@ -10,7 +10,7 @@ export interface AccommodationsI {
   lowerPrice: number,
   type: [],
   category: [],
-  level: [],
+  level: number,
   location: {
     lat: number,
     lng: number
