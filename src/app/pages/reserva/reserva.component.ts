@@ -32,6 +32,8 @@ export class ReservaComponent {
   public peopleSearched: any;
   public nightsSearched: any;
 
+  public templateParams: any;
+
   constructor(private accommodationApi: AccommodationService, public AuthService: AuthService, private router: Router, private bookingApi: BookingService) {}
 
   ngOnInit(): void {
@@ -125,20 +127,35 @@ export class ReservaComponent {
         this.bookingApi.putUserBooking(userId, data._id).subscribe((data) => {
           console.log("added booking to user: ---------", data);   
         });
+
+        // send email to user
+        this.sendEmail();
     });
 
     }
   }
 
-//   public sendEmail(e: Event) {
-//     e.preventDefault();
-//     emailjs.sendForm(environment.email_service_id, environment.email_template_id, e.target as HTMLFormElement, environment.email_public_key)
-//       .then((result: EmailJSResponseStatus) => {
-//         console.log(result.text);
-//         console.log(result.text);
-//       }, (error) => {
-//         console.log(error.text);
-//       });
-//   }
+
+
+  public sendEmail() {
+
+    const emailParams: Record<string, unknown> = {
+      name: this.booking.name,
+      bookingCode: this.booking.bookingCode,
+      nights: this.booking.nights,
+      people: this.booking.people,
+      nameAlojamiento: this.booking.nameAlojamiento,
+      dateEntry: this.booking.dateEntry,
+      dateDeparture: this.booking.dateDeparture,
+    }
+
+    emailjs.send(environment.email_service_id, environment.email_template_id, emailParams, environment.email_public_key, )
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
  
+}
+
 }
