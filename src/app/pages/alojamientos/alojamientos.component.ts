@@ -28,12 +28,10 @@ export class AlojamientosComponent implements OnInit {
   mapOptions: google.maps.MapOptions = {
   };
 
-  constructor(private accommodationApi: AccommodationService, private AuthService:AuthService, private router: Router) {this.userRole = this.AuthService.getAccommodations();}
+  constructor(private accommodationApi: AccommodationService, private AuthService:AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.accommodationApi.getAccommodations().subscribe((data: any) => {
-      this.accommodationList = data;
-    })
+    this.userRole = this.AuthService.getRole();
   }
 
   ngAfterViewInit(): void {
