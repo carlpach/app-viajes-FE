@@ -141,6 +141,7 @@ export class ReservaComponent {
 
     const emailParams: Record<string, unknown> = {
       name: this.booking.name,
+      email: this.user.email,
       bookingCode: this.booking.bookingCode,
       nights: this.booking.nights,
       people: this.booking.people,
