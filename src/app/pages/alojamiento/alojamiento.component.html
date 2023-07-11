@@ -1,9 +1,11 @@
 
 <div>
+  <div *ngFor="let image of alojamiento!.images">
+    <img src="{{ image }}" alt="{{ alojamiento!.name }}" />
+  </div>
   <h2>{{ alojamiento!.name }} </h2>
   <h2>{{ alojamiento!.type }} in {{ alojamiento!.city}} </h2>
   <div>De  {{ alojamiento!.level }} estrellas</div>
-  <img src="{{ mainImage }}" alt="{{alojamiento!.name}}" />
 </div>
 
 
@@ -14,7 +16,7 @@
           <p>{{room.description}}</p>
           <p>€ {{room.price * nightsSearched}}</p>
           <p>(Total) Incluye impuestos y cargos</p>
-          <img src="{{room.mainImage}}" alt="{{room.name}}" />
+          <img src="{{room.images[0]}}" alt="{{room.name}}" />
           <button (click)="clickBook(room)" >Reservar</button>
       </li>
   </ul>
