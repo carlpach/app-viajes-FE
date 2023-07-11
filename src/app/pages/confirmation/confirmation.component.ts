@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BookingService } from 'src/app/services/booking.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -10,11 +11,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ConfirmationComponent {
 
   public booking: any;
-
-  constructor(private router: Router, private bookingApi: BookingService) {}
+  public user: any;
+  
+  constructor(private router: Router, private bookingApi: BookingService, public AuthService: AuthService) {}
 
   ngOnInit(): void {
-
+  this.user = this.AuthService.getUser();
   this.booking = this.bookingApi.getBooking()
   }
 }
