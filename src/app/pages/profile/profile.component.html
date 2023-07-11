@@ -6,7 +6,10 @@
 <div class="profile">
     <div class="user">
     <h4>Datos personales:</h4>
-    <p>{{user.name}}</p>
+    <div class="personal">
+    <p>{{user.name}}</p> 
+    <p>{{user.lastname}}</p>
+    </div>
     <p>{{user.email}}</p>
     </div>
     <div class="img">
@@ -18,12 +21,20 @@
     <div class="reserva">
     <h4>Mis reservas</h4>
     </div>
-    <div class="misReservas" *ngFor="let book of user.Booking">
+    <div class="misReservas" *ngFor="let book of books">
     <div>
-        <p>{{book.name}}</p>    
-        <p>{{book.date}}</p>
+        <p>{{book.nameAlojamiento}}</p>
+        <span>Entry</span>
+        <p>{{book.dateEntry}}</p>
+        <span>Departure</span>
+        <p>{{book.dateDeparture}}</p>
+        
      </div> 
-        <div>  
+        <div class="img">  
+          <div>
+          <img src="{{book.image}}" alt="">
+        </div>
+        <div class="svg">
             <button><svg
                 width="24"
                 height="24"
@@ -60,6 +71,7 @@
               </svg></button>  
             </div>
     </div>
+  </div>
 </div>
 
 
