@@ -11,41 +11,35 @@ import { AccommodationService } from 'src/app/services/accommodation.service';
 })
 export class EditarAlojamientoComponent implements OnInit {
   id!:number;
-  accommodation!:AccommodationsI;
+  alojamiento!:AccommodationsI;
   submitted: boolean = false;
-  accommodationForm!: FormGroup;
+  alojamientoForm!: FormGroup;
 
   constructor(private accommodationApi: AccommodationService, private form: FormBuilder, private router: Router){
-    this.accommodation = this.accommodationApi.getMyAccommodation();
+    this.alojamiento = this.accommodationApi.getMyAccommodation();
     this.id = this.accommodationApi.getMyId();
   }
   ngOnInit(): void {
-    this.accommodationForm = this.form.group({
-      name: [this.accommodation.name, [Validators.required]],
-      city:[this.accommodation.city, [Validators.required]],
-      lowerPrice: [this.accommodation.lowerPrice, [Validators.required]],
-      type: [this.accommodation.type, [Validators.required]],
-      level: [this.accommodation.level, [Validators.required]],
-      location: [this.accommodation.location, [Validators.required]],
-      images: [this.accommodation.images, [Validators.required]],
-      rooms: [this.accommodation.rooms, [Validators.required]]
+    this.alojamientoForm = this.form.group({
+      name: [this.alojamiento.name, [Validators.required]],
+      city:[this.alojamiento.city, [Validators.required]],
+      lowerPrice: [this.alojamiento.lowerPrice, [Validators.required]],
+      type: [this.alojamiento.type, [Validators.required]],
+      level: [this.alojamiento.level, [Validators.required]],
+      location: [this.alojamiento.location, [Validators.required]],
+      images: [this.alojamiento.images, [Validators.required]],
+      rooms: [this.alojamiento.rooms, [Validators.required]]
     })
 
-    this.accommodationForm.valueChanges.subscribe((data) => {
-      this.accommodation = data;
+    this.alojamientoForm.valueChanges.subscribe((data) => {
+      this.alojamiento = data;
     })
   }
 
 
-  editarAlojamiento(){
+  editarAlojamiento() {
     this.submitted = true;
-    if(this.accommodationForm.valid){
-      this.accommodationApi.putAlojamiento(this.accommodation, this._id).subscribe((data) => {
-        console.log(data);
-        this.accommodationForm.reset();
-        this.submitted = false;
-        this.router.navigate(["/"]);
-      })
+    if (this.alojamientoForm.invalid) {
+      return;
     }
-  }
 }

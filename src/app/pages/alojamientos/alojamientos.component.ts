@@ -28,12 +28,12 @@ export class AlojamientosComponent implements OnInit {
   mapOptions: google.maps.MapOptions = {
   };
 
-  constructor(private accommodationApi: AccommodationService, private AuthService:AuthService, private router: Router) {this.userRole = this.AuthService.getAccommodations();}
+  constructor(private accommodationApi: AccommodationService, private AuthService:AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.accommodationApi.getAccommodations().subscribe((data: any) => {
-      this.accommodationList = data;
-    })
+      this.alojamientosList = data;
+    });
   }
 
   ngAfterViewInit(): void {
@@ -47,6 +47,15 @@ export class AlojamientosComponent implements OnInit {
 
     this.map.googleMap!.setCenter({lat: 40.394150, lng: -3.596239}); // Center of Spain
     this.map.googleMap!.setZoom(6);
+
+    clickAlojamientoDetalle(accommodSelected: AccommodationsI) {
+      this.accommodationApi.setAccommodSelected(accommodSelected);
+      this.router.navigate(["/alojamiento"]);
+    }
+    editarAlojamiento(alojamiento: AccommodationsI) {
+      this.accommodationApi.setAccommodSelected(alojamiento);
+      this.router.navigate(["/editar-alojamiento"]);
+    }
 
     // get alojamientos searched from service
     this.alojamientosList = this.accommodationApi.getAccommodSearched();
@@ -80,6 +89,5 @@ export class AlojamientosComponent implements OnInit {
     this.map.googleMap!.setZoom(13);
 
   }
-
 }
 

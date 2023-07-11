@@ -20,13 +20,13 @@ export class AccommodationService {
   constructor(private http: HttpClient) { }
 
   public getAccommodations() {
-    return this.http.get(this.db_url); 
-  }   
+    return this.http.get(this.db_url);
+  }
 
   public getAccommodationsBySearch(city: String, checkin: String, checkout: String, people: String) {
-    this.accommodDataSearch = { 
-      checkin: checkin, 
-      checkout: checkout, 
+    this.accommodDataSearch = {
+      checkin: checkin,
+      checkout: checkout,
       people: people
     };
     return this.http.get(`${this.db_url}/search?city=${city}&checkin=${checkin}&checkout=${checkout}&people=${people}`);
@@ -48,7 +48,7 @@ export class AccommodationService {
   // set accommodation selected by user
   public setAccommodSelected(accommodSelected: AccommodationsI){
     this.accommodSelected = accommodSelected;
-  }  
+  }
 
   public getAccommodSelected(){
     return this.accommodSelected;
@@ -66,6 +66,23 @@ export class AccommodationService {
     // get room selected by user
     public getRoomSelected(){
       return this.roomSelected;
+    }
+    putAccommodation(alojamiento: AccommodationsI, id: number){
+      return this.http.put(`http://localhost:3000/alojamientos/${id}`, alojamiento);
+    }
+    setAccommodation(alojamiento: AccommodationsI, id: number){
+      this.alojamiento = alojamiento;
+      this.id = id;
+    }
+    deleteAccommodation(id: number){
+      return this.http.delete(`http://localhost:3000/alojamientos/${id}`);
+    }
+
+    getMyAccommodation(){
+      return this.alojamiento;
+    }
+    getMyId(){
+      return this._id;
     }
 
 }

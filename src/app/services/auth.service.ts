@@ -19,7 +19,6 @@ export class AuthService {
   login(user: UserI){
     return this.http.post(`${environment.db_url}/users/login`, user)
   }
-
   getToken(){
     return sessionStorage.getItem('token');
   }
@@ -33,8 +32,6 @@ export class AuthService {
 
     return user?.role;
   }
-  
-
   logOut(){
     // localStorage.clear(); //COn este borrariamos todo en localstorage
     sessionStorage.removeItem('token');

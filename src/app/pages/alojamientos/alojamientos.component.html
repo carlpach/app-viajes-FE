@@ -9,21 +9,14 @@
 <ul class="" *ngIf="alojamientosList">
   <li class="itemlist" *ngFor="let alojamiento of alojamientosList">
     <img class="ul__img" src="{{ alojamiento.images[0] }}" alt="{{ alojamiento.name }}" />
-    <h3>{{alojamiento.name}}</h3>
+    <h3>{{ alojamiento.name }}</h3>
     <p>Desde {{ alojamiento.lowerPrice }} /noche</p>
     <button (click)="clickAlojamientoDetalle(alojamiento)">Reservar</button>
-<div *ngIf="userRole === 'admin'">
-  <!-- Opcion de editar aquí -->
-  <button (click)="editarAlojamiento(alojamiento)">Editar</button>
-</div>
-
-<ul class="" *ngIf="alojamientosList">
-    <li class="itemlist" (click)="onClickItem(alojamiento)" *ngFor="let alojamiento of alojamientosList">
-        <img class="ul__img" src="{{ alojamiento.images[0] }}" alt="{{ alojamiento.name }}" />
-        <h3>{{alojamiento.name}}</h3>
-        <p>Desde {{ alojamiento.lowerPrice }} /noche</p>
-        <button (click)="clickAlojamientoDetalle( alojamiento )">Reservar</button>
-    </li>
+    <div *ngIf="userRole === 'admin'">
+      <!-- Opcion de editar aquí -->
+      <button (click)="editarAlojamiento(alojamiento)">Editar</button>
+    </div>
+  </li>
 </ul>
 
 <h3 *ngIf="!alojamientosList" >Lo sentimos pero no hay alojamiento para esas fechas</h3>
