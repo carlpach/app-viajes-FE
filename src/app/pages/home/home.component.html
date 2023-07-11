@@ -1,8 +1,15 @@
-<nav class="navbar"></nav>
+<div class="b-container">
+
+<div class="b-title">
+  <h1>Adónde irás, {{ user.name }} ?</h1>
+  <h2>Escapate de tu rutina reservando habitaciones de hotel </h2>  
+  <div class="b-title__img"></div>
+</div>
+
 
 <form class="search-form" [formGroup]="searchForm" (ngSubmit)="searchAccommodation()">
   <div>
-    <input placeholder="City" formControlName="city" type="text" />
+    <input class="search-form__input" placeholder="City" formControlName="city" type="text" />
     <p class="error-message" *ngIf="submitted && searchForm?.get('city')?.hasError('required')">Este campo es requerido</p>
     <p class="error-message" *ngIf="submitted && searchForm?.get('city')?.hasError('minlength')">Este campo tiene que tener más de 4 caracteres</p>
   </div>
@@ -10,20 +17,23 @@
   <div class="date-range">
     <mat-form-field class="example-form-field">
       <mat-label>Dates</mat-label>
-      <mat-date-range-input [formGroup]="searchForm" [rangePicker]="campaignOnePicker">
+      <mat-date-range-input [formGroup]="searchForm" [rangePicker]="dateHotelPicker">
         <input matStartDate placeholder="Start date" formControlName="start" />
         <input matEndDate placeholder="End date" formControlName="end" />
       </mat-date-range-input>
-      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
-      <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+      <mat-datepicker-toggle matIconSuffix [for]="dateHotelPicker"></mat-datepicker-toggle>
+      <mat-date-range-picker #dateHotelPicker></mat-date-range-picker>
     </mat-form-field>
   </div>
 
   <div>
-    <input placeholder="Personas" formControlName="people" type="text" />
+    <input class="search-form__input" placeholder="Personas" formControlName="people" type="text" />
     <p class="error-message" *ngIf="submitted && searchForm?.get('people')?.hasError('required')">Este campo es requerido</p>
   </div>
 
-  <button class="search-button">Buscar</button>
+  <button>Buscar</button>
 </form>
+
+
+</div>
+

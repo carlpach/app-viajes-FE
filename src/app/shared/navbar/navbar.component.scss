@@ -11,11 +11,17 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background: rgb(0, 59, 149);
+  background:   rgb(77, 120, 177)
 } h3{
+  font-size: 25px;
   color: white;
   margin: 6px;
   font-weight: 900;
+}
+
+.mat-mdc-button.mat-unthemed {
+  --mdc-text-button-label-text-color: #fff;
+
 }
 
 
