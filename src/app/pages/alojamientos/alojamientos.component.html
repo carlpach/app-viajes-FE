@@ -29,8 +29,9 @@
 <h3 *ngIf="!alojamientosList" >Lo sentimos pero no hay alojamiento para esas fechas</h3>
 
 <div class="my-google-map">
-<google-map width="100%" height="100%" class="b-map" [options]="mapOptions">
-    <map-marker *ngFor="let alojamiento of alojamientosList"
-    [position]="alojamiento.location"></map-marker>
-</google-map>
+  <google-map width="100%" height="100%" class="b-map" [options]="mapOptions">
+    <map-marker *ngFor="let alojamiento of alojamientosList" [position]="alojamiento.location"></map-marker>
+  </google-map>
+</div>
+
 
