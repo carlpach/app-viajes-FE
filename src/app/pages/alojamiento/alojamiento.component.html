@@ -5,7 +5,10 @@
   </div>
   <h2>{{ alojamiento!.name }} </h2>
   <h2>{{ alojamiento!.type }} in {{ alojamiento!.city}} </h2>
-  <div>De  {{ alojamiento!.level }} estrellas</div>
+  <span *ngFor="let star of generateStarsArray(alojamiento!.level)" class="fa fa-star checked">
+  </span>
+  <span *ngFor="let star of generateNoStarsArray(alojamiento!.level)" class="fa fa-star unchecked">
+  </span>
 </div>
 
 
@@ -24,5 +27,5 @@
           </div>
       </li>
   </ul>
-  <div *ngIf="!habitaciones" >no hay rooms, busca de nuevo</div>
+  <div *ngIf="habitaciones?.length == 0" >Ya no hay habitaciones disponibles en este hotel...</div>
 </div>

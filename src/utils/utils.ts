@@ -6,5 +6,15 @@ function date_TO_String(date_Object: Date) {
     return date_String;
  }
 
+function generateStarsArray(level: number): number[] {
+    return Array(level).fill(0).map((_, i) => i + 1);
+  }
 
-export {date_TO_String};
+function generateNoStarsArray(level: number): number[] {
+    const levelReturn = Math.abs(level - 5)
+    return Array(levelReturn).fill(0).map((_, i) => i + 1);
+  }
+
+
+
+export {date_TO_String, generateStarsArray, generateNoStarsArray};

@@ -23,10 +23,7 @@ export class AlojamientoComponent {
     // console.log(this.token)
     this.userRole = this.AuthService.getRole();
     console.log("user role --------", this.userRole);
-    
-
   }
-
 
   ngOnInit(): void {
 
@@ -40,9 +37,17 @@ export class AlojamientoComponent {
         this.habitaciones!.push(data);
       });
     }
-
     console.log("this.habitaciones  ---", this.alojamiento );
 
+  }
+
+  generateStarsArray(level: number): number[] {
+    return Array(level).fill(0).map((_, i) => i + 1);
+  }
+
+  generateNoStarsArray(level: number): number[] {
+    const levelReturn = Math.abs(level - 5)
+    return Array(levelReturn).fill(0).map((_, i) => i + 1);
   }
 
   public editRoom(room: RoomI) {
