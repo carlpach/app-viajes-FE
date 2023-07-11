@@ -18,6 +18,10 @@
           <p>(Total) Incluye impuestos y cargos</p>
           <img src="{{room.images[0]}}" alt="{{room.name}}" />
           <button (click)="clickBook(room)" >Reservar</button>
+          <div *ngIf="userRole === 'admin'">
+            <!-- Opcion de editar aquí -->
+            <button (click)="editRoom(room)">Editar</button>
+          </div>
       </li>
   </ul>
   <div *ngIf="!habitaciones" >no hay rooms, busca de nuevo</div>

@@ -10,7 +10,7 @@ import { GoogleMap } from '@angular/google-maps';
   templateUrl: './alojamientos.component.html',
   styleUrls: ['./alojamientos.component.scss']
 })
-export class AlojamientosComponent implements OnInit {
+export class AlojamientosComponent {
 
   public citySearched: any;
   public startSearched: any;
@@ -29,10 +29,6 @@ export class AlojamientosComponent implements OnInit {
   };
 
   constructor(private accommodationApi: AccommodationService, private AuthService:AuthService, private router: Router) {}
-
-  ngOnInit(): void {
-    this.userRole = this.AuthService.getRole();
-  }
 
   ngAfterViewInit(): void {
 

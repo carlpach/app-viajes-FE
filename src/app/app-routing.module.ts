@@ -9,7 +9,7 @@ import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component'
 import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { authGuard } from './guard/auth.guard';
-import { EditarAlojamientoComponent } from './pages/editar-alojamiento/editar-alojamiento.component';
+import { EditRoomComponent } from './pages/edit-room/edit-room.component';
 
 const routes: Routes = [
 
@@ -35,7 +35,7 @@ const routes: Routes = [
     path:'profile', component: ProfileComponent, canActivate: [authGuard]
   },
   {
-    path: 'editar-alojamiento/:id', component: EditarAlojamientoComponent, canActivate: [authGuard]
+    path: 'edit-room', component: EditRoomComponent, canActivate: [authGuard]
   },
 ];
 

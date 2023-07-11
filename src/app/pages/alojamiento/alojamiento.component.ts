@@ -16,10 +16,12 @@ export class AlojamientoComponent {
   public habitaciones?: RoomI[] = [];
   public nightsSearched: any;
   public mainImage?: string;
+  public userRole: string | undefined;
 
   constructor(private accommodationApi: AccommodationService, public AuthService:AuthService, private router: Router) {
     // this.token=this.AuthService.getToken()
     // console.log(this.token)
+    this.userRole = this.AuthService.getRole();
 
   }
 
@@ -40,7 +42,11 @@ export class AlojamientoComponent {
     console.log("this.habitaciones  ---", this.alojamiento );
 
   }
- 
+
+  public editRoom(room: RoomI) {
+    this.accommodationApi.setRoomSelected(room);
+    this.router.navigate(["/edit-room"]);
+  }
 
   public clickBook(room: RoomI) {
     this.accommodationApi.setRoomSelected(room);

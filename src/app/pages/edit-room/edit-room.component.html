@@ -1,0 +1,28 @@
+<p>edit-room works!</p>
+
+
+<form [formGroup]="roomForm" (ngSubmit) = "editarRoom()">
+    <div>
+        <input placeholder="nombre" formControlName="name" type="text"/>
+        <p *ngIf="(submitted && roomForm?.get('name')?.hasError('required'))">Este campo es requerido</p>
+    </div>
+    <div>
+        <input placeholder="ciudad" formControlName="description" type="text"/>
+        <p *ngIf="(submitted && roomForm?.get('description')?.hasError('required'))">Este campo es requerido</p>
+    </div>
+    <div>
+        <input placeholder="precio" formControlName="features" type="number"/>
+        <p *ngIf="(submitted && roomForm?.get('features')?.hasError('required'))">Este campo es requerido</p>
+    </div>
+    <div>
+        <input placeholder="tipo" formControlName="price" type="text"/>
+        <p *ngIf="(submitted && roomForm?.get('price')?.hasError('required'))">Este campo es requerido</p>
+    </div>
+    <div>
+      <input placeholder="nivel" formControlName="images" type="number"/>
+      <p *ngIf="(submitted && roomForm?.get('images')?.hasError('required'))">Este campo es requerido</p>
+  </div>
+    <button>Guardar cambios</button>
+    <button>Borrar habitacion</button>
+  </form>
+  
