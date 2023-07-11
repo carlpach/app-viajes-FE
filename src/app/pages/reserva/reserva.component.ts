@@ -50,7 +50,6 @@ export class ReservaComponent {
     this.user = this.AuthService.getUser();
     console.log(this.user);
     
-
     this.bookingForm = new FormGroup({
       name: new FormControl(this.user.name),
       lastname: new FormControl(this.user.lastname),
@@ -102,6 +101,9 @@ export class ReservaComponent {
     this.booking.dateEntry = this.accommodationApi.accommodDataSearch.checkin;
     this.booking.dateDeparture = this.accommodationApi.accommodDataSearch.checkout;
     this.booking.room = this.room._id;
+    this.booking.nights = parseInt(sessionStorage.getItem('nights')!);
+    this.booking.people = parseInt(sessionStorage.getItem('people')!);
+    this.booking.image = this.alojamiento.images[0];
     // delete this.booking.CVC;
 
 

@@ -14,7 +14,7 @@
           <p>{{room.description}}</p>
           <p>€ {{room.price * nightsSearched}}</p>
           <p>(Total) Incluye impuestos y cargos</p>
-          <img src="{{room.mainImage}}" alt="{{room.name}}" />
+          <img src="{{room.images[0]}}" alt="{{room.name}}" />
           <button (click)="clickBook(room)" >Reservar</button>
       </li>
   </ul>

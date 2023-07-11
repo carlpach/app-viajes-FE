@@ -26,9 +26,10 @@
             <li *ngFor="let feature of room.features"> 
                 {{ feature }}
             </li>
-
         </ul>
-
+        <div *ngFor="let image of room.images">
+            <img src="{{ image }}" alt="{{ room.name }}" />
+        </div>
         <h3>Alojamiento en {{ citySearched }} </h3>
     </div>
 </div>

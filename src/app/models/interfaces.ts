@@ -15,7 +15,6 @@ export interface AccommodationsI {
     lat: number,
     lng: number
   },
-  mainImage: string,
   images: string[],
   rooms: string[],
 }
@@ -26,8 +25,7 @@ export interface RoomI {
   description: string,
   features: [],
   price: number,
-  mainImage: string,
-  images: [],
+  images: string[],
 
 }
 
@@ -39,6 +37,7 @@ export interface BookingI {
   dateEntry: string,
   dateDeparture: string,
   nights: number,
+  people: number,
   timeCheckin: string,
   petitionCustomer: string,
   image: string,
