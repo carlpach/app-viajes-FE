@@ -58,14 +58,21 @@ export class AccommodationService {
     return this.http.get(`${environment.db_url}/rooms/${id}`);
   }
 
-    // set room selected by user
-    public setRoomSelected(room: any){
-      this.roomSelected = room;
-    }
+  
+  putRoom(updatedRoom: RoomI) {
+    console.log("roomSelected --------->", this.roomSelected);
+    
+    return this.http.put(`${environment.db_url}/${this.roomSelected._id}`, updatedRoom);
+  }
 
-    // get room selected by user
-    public getRoomSelected(){
-      return this.roomSelected;
-    }
+  // set room selected by user
+  public setRoomSelected(room: any){
+    this.roomSelected = room;
+  }
+
+  // get room selected by user
+  public getRoomSelected(){
+    return this.roomSelected;
+  }
 
 }
