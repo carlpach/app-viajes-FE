@@ -19,6 +19,8 @@ export class AlojamientosComponent {
   public nightsSearched: any;
 
   alojamientosList: AccommodationsI[] = [];
+  filteredalojamientosList?: AccommodationsI[];
+
   token:any;
   public mapBounds = new google.maps.LatLngBounds();
   @ViewChild(GoogleMap) map!: GoogleMap;
@@ -28,6 +30,10 @@ export class AlojamientosComponent {
 
   constructor(private accommodationApi: AccommodationService, public AuthService:AuthService, private router: Router) {}
 
+  valueDown = 0;
+  valueUp = 0;
+  priceDown: any;
+  priceUp: any;
 
   ngAfterViewInit(): void {
 
@@ -44,6 +50,8 @@ export class AlojamientosComponent {
     this.alojamientosList = this.accommodationApi.getAccommodSearched();
     console.log("alojamientoList", this.alojamientosList);
     console.log("alojamientoList length", this.alojamientosList.length == 0);
+    console.log("valueUp", this.valueUp);
+    console.log("valueUp", this.valueDown);
 
     // zoom to existing markers
     let bounds = new google.maps.LatLngBounds();
@@ -58,6 +66,27 @@ export class AlojamientosComponent {
 
       this.map.googleMap!.fitBounds(bounds);  
     }
+    console.log("filteredalojamientosList length 1---------", this.filteredalojamientosList?.length);
+
+    
+  }
+
+  changeDown(event: any) {
+    console.log("event down ----------", event);
+    this.priceDown = event;
+  }
+  changeUp(event: any) {
+    console.log("event up ----------", event);
+    this.priceUp = event;
+  }
+
+  clickFilter() {
+    // Filter hotels in the hotel list
+    this.filteredalojamientosList = this.alojamientosList.filter((item) => {
+      return item.lowerPrice >= this.valueDown && item.lowerPrice <= this.valueUp;
+    })
+    console.log("filteredalojamientosList ---------", this.filteredalojamientosList);
+    console.log("filteredalojamientosList length---------", this.filteredalojamientosList.length);
     
   }
 

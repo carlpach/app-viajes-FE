@@ -26,7 +26,7 @@ import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
 import { GoogleMapsModule } from '@angular/google-maps';
-
+import {MatSliderModule} from '@angular/material/slider'
 
 
 @NgModule({
@@ -57,7 +57,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MatSliderModule
 
   ],
 
