@@ -1,9 +1,11 @@
 
 <div>
+  <div *ngFor="let image of alojamiento!.images">
+    <img src="{{ image }}" alt="{{ alojamiento!.name }}" />
+  </div>
   <h2>{{ alojamiento!.name }} </h2>
   <h2>{{ alojamiento!.type }} in {{ alojamiento!.city}} </h2>
   <div>De  {{ alojamiento!.level }} estrellas</div>
-  <img src="{{ mainImage }}" alt="{{alojamiento!.name}}" />
 </div>
 
 

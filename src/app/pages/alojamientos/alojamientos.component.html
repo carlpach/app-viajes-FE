@@ -10,7 +10,7 @@
     <li class="itemlist" (click)="onClickItem(alojamiento)" *ngFor="let alojamiento of alojamientosList">
         <img class="ul__img" src="{{ alojamiento.images[0] }}" alt="{{ alojamiento.name }}" />
         <h3>{{alojamiento.name}}</h3>
-        <p>Desde {{alojamiento.LowerPrice}} /noche</p>
+        <p>Desde {{ alojamiento.lowerPrice }} /noche</p>
         <button (click)="clickAlojamientoDetalle( alojamiento )">Reservar</button>
     </li>
 </ul>
