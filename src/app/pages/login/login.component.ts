@@ -30,7 +30,7 @@ export class LoginComponent {
     // }
 
   }
-
+  errorMessage: string = '';
   onSubmit(){
     console.log(this.loginForm.value);
     this.submitted= true;
@@ -45,7 +45,8 @@ export class LoginComponent {
           sessionStorage.setItem('user', JSON.stringify(data.user));
           this.router.navigate(['/']);
 
-        },(error)=>{this.error=error})
+        },(error)=>{ this.errorMessage = error.error.message;
+          console.log(error);})
       }
     }
 }

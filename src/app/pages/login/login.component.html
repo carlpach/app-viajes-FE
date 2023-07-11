@@ -15,7 +15,7 @@
       <button type="submit" class="submit">
      Sign in
    </button>
-
+   <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
    <p class="signup-link">
      No account?
      <a href="/register">Sign up</a>
