@@ -73,3 +73,21 @@ button:focus {
   color: grey;
 }
 
+
+
+.mySlides {display: none;}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}

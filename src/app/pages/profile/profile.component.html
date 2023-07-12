@@ -1,14 +1,13 @@
 <div class="enum">
 <h2>Configuracion de la cuenta</h2>
-<p>Gestiona tu experiencia en Booking</p>
+<p>Gestiona tu experiencia en TuHotel.com</p>
 </div>
 
 <div class="profile">
     <div class="user">
     <h4>Datos personales:</h4>
     <div class="personal">
-    <p>{{user.name}}</p> 
-    <p>{{user.lastname}}</p>
+    <p>{{user.name}} {{user.lastname}}</p> 
     </div>
     <p>{{user.email}}</p>
     </div>
@@ -24,10 +23,10 @@
     </div>
     <div class="misReservas" *ngFor="let book of books">
     <div>
-        <p>{{book.nameAlojamiento}}</p>
-        <span>Entry</span>
+        <h1>{{book.nameAlojamiento}}</h1>
+        <span>Entrada</span>
         <p>{{book.dateEntry}}</p>
-        <span>Departure</span>
+        <span>Salida</span>
         <p>{{book.dateDeparture}}</p>
         
      </div> 

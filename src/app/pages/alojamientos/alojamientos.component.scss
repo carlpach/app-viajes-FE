@@ -6,9 +6,10 @@ ul {
 }
 
 .ul__img {
-    object-fit: contain;
+    object-fit: cover;
     width: auto;
     height: 100%;
+    max-width: 100px;
 }
 
 li {

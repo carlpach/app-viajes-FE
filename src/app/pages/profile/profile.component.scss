@@ -19,6 +19,7 @@
 
 .enum{  margin-left: 10px;
         margin-bottom: 25px;    
+        margin-top: 10px;
     h2{
         font-size: 20px;
         font-weight: 800;
@@ -76,6 +77,9 @@ button{
     margin-right: 10px;
     border: none;
     background: white;
+    svg{
+        color: rgb(250, 107, 107);
+    }
 }
 
 .personal{
@@ -90,5 +94,7 @@ button{
     display: flex;
     justify-content: flex-end;
     margin-top: 16px;
+    color: rgb(250, 107, 107);
 }
 
+h1{font-weight: 800;}
