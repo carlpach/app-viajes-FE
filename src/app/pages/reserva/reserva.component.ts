@@ -32,6 +32,11 @@ export class ReservaComponent {
   public peopleSearched: any;
   public nightsSearched: any;
 
+  public showResumenHab: boolean = true;
+  public showInfoIzq: boolean = true;
+  public showPayment: boolean = true;
+
+
   constructor(private accommodationApi: AccommodationService, public AuthService: AuthService, private router: Router, private bookingApi: BookingService) {}
 
   ngOnInit(): void {
@@ -51,7 +56,7 @@ export class ReservaComponent {
     // this.user = this.AuthService.getUser();
     this.user = this.AuthService.getUser();
     console.log(this.user);
-    
+
     this.bookingForm = new FormGroup({
       name: new FormControl(this.user.name),
       lastname: new FormControl(this.user.lastname),
@@ -63,7 +68,7 @@ export class ReservaComponent {
     this.bookingForm.valueChanges.subscribe((data) => {
       console.log("form values changes ----------", data);
       console.log("submittedDetails ----------", this.submittedDetails);
-      
+
       this.booking = data;
     })
 
@@ -76,22 +81,26 @@ export class ReservaComponent {
       CVC: new FormControl("", [Validators.required, Validators.pattern('^[0-9]{3,4}$')]),
     });
 
-    
+
   }
 
   public clickIrAPagar() {
       console.log("click  ir a pagar");
 
       console.log("this.bookingForm.valid -->", this.bookingForm.valid);
-      
+
       if (this.bookingForm.valid) {
         this.submittedDetails = true;
+        this.booking = this.bookingForm.value;
         this.bookingApi.setBooking(this.booking); // set details of booking in service
         this.bookingForm.reset();
         console.log("bookingForm sent ----------", this.bookingForm);
+        this.showResumenHab = false;
+        this.showInfoIzq = false;
+        this.showPayment = false;
       }
     }
-     
+
 
   public clickPagar() {
     // get booking data from service
@@ -123,8 +132,8 @@ export class ReservaComponent {
         }
         // Put booking in user db
         this.bookingApi.putUserBooking(userId, data._id).subscribe((data) => {
-          console.log("added booking to user: ---------", data);  
-          sessionStorage.setItem('user', JSON.stringify(data)); 
+          console.log("added booking to user: ---------", data);
+          sessionStorage.setItem('user', JSON.stringify(data));
         });
 
         // send email to user
@@ -155,7 +164,7 @@ export class ReservaComponent {
     }, function(error) {
        console.log('FAILED...', error);
     });
- 
+
 }
 
 }
