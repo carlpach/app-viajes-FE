@@ -1,18 +1,16 @@
-<p>edit-room works!</p>
-
-<img src={{room.images[0]}}>
+<img class="img" src={{room.images[0]}}>
 
 <form [formGroup]="roomForm" (ngSubmit) = "editarRoom()">
     <div>
-        <input placeholder="nombre" formControlName="name" type="text"/>
+        <input class="input" placeholder="nombre" formControlName="name" type="text"/>
         <p *ngIf="(submitted && roomForm?.get('name')?.hasError('required'))">Este campo es requerido</p>
     </div>
     <div>
-        <input placeholder="description" formControlName="description" type="text"/>
+        <input class="input" placeholder="description" formControlName="description" type="text"/>
         <p *ngIf="(submitted && roomForm?.get('description')?.hasError('required'))">Este campo es requerido</p>
     </div>
     <div>
-        <input placeholder="price" formControlName="price" type="number"/>
+        <input class="input" placeholder="price" formControlName="price" type="number"/>
         <p *ngIf="(submitted && roomForm?.get('price')?.hasError('required'))">Este campo es requerido</p>
     </div>
 

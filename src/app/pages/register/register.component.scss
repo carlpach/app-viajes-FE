@@ -1,7 +1,7 @@
 .form {
   background-color: #fff;
   display: block;
-  padding: 38px 42px 24px 16px;
+  padding: 35px 16px 24px 16px;
   margin: auto;
   margin-top: 128px;
   max-width: 75%;
@@ -75,6 +75,7 @@ a:link, a:visited {
   width: 100%;
   padding: 10px 10px 20px 10px;
   outline: 0;
+  margin-top: 6px;
   border: 1px solid rgba(105, 105, 105, 0.397);
   border-radius: 10px;
 }
@@ -108,7 +109,7 @@ a:link, a:visited {
   border: none;
   outline: none;
   background-color: rgb(250,107,107);
-  padding: 10px 40%;
+  padding: 10px 90px;
   border-radius: 10px;
   color: #fff;
   font-size: 16px;
@@ -134,4 +135,7 @@ a:link, a:visited {
 }
 .pa{
   margin-left: 33px;
+}
+p{
+  margin-top: 5px
 }
