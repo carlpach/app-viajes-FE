@@ -3,7 +3,7 @@
     <a routerLink="/" ><h3>TuHotel.com</h3></a>
   </div>
   <div>
-    <button *ngIf="AuthService.getToken()" class="perfil" routerLink="/profile">{{user?.name[0]}} {{user?.lastname[0]}}</button>
+    <button class="b-button-profile" *ngIf="AuthService.getToken()" class="perfil" routerLink="/profile">{{user?.name[0]}} {{user?.lastname[0]}}</button>
   <button class="boton" mat-button [matMenuTriggerFor]="menu">☰</button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item><a class="dropdown-item" routerLink="/"> Home </a></button>
