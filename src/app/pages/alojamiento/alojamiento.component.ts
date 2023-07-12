@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { AccommodationsI, RoomI } from '../../models/interfaces';
 import { AccommodationService } from 'src/app/services/accommodation.service';
-
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alojamiento',
@@ -15,19 +14,35 @@ export class AlojamientoComponent {
   public alojamiento?: AccommodationsI;
   public habitaciones?: RoomI[] = [];
   public nightsSearched: any;
+  public peopleSearched: any;
   public userRole: string | undefined;
+  public slideIndex = 0;
+  imagesHotel?: any;
 
+  responsiveOptions: any[] = [
+    {
+        breakpoint: '1024px',
+        numVisible: 5
+    },
+    {
+        breakpoint: '768px',
+        numVisible: 3
+    },
+    {
+        breakpoint: '560px',
+        numVisible: 1
+    }
+];
   constructor(private accommodationApi: AccommodationService, public AuthService:AuthService, private router: Router) {
-    // this.token=this.AuthService.getToken()
-    // console.log(this.token)
     this.userRole = this.AuthService.getRole();
-    console.log("user role --------", this.userRole);
+    // console.log("user role --------", this.userRole);
   }
 
   ngOnInit(): void {
 
     this.alojamiento = this.accommodationApi.getAccommodSelected()
     this.nightsSearched = sessionStorage.getItem('nights');
+    this.peopleSearched = sessionStorage.getItem('people');
 
     for (const roomId of this.alojamiento.rooms) {
       this.accommodationApi.getRoomsByID(roomId).subscribe((data: any) => {
@@ -37,11 +52,21 @@ export class AlojamientoComponent {
     }
     console.log("this.habitaciones  ---", this.alojamiento );
 
-    let slideIndex = 0;
-  
-    this.showSlides(slideIndex);
+    this.imagesHotel  = this.alojamiento.images;
+
+    }
+
+
+  ngAfterViewInit(): void {
+    // console.log(this.slideIndex);
+    // this.showSlides();
 
   }
+
+  generateArray(number: number): number[] {
+    return Array(number).fill(0).map((_, i) => i + 1);
+  }
+
 
   generateStarsArray(level: number): number[] {
     return Array(level).fill(0).map((_, i) => i + 1);
@@ -61,23 +86,6 @@ export class AlojamientoComponent {
     this.accommodationApi.setRoomSelected(room);
     this.router.navigate(["/reserva"]);
 
-  }
-
-  public showSlides(slideIndex: any) {
-    let i;
-    let slides: any = document.getElementsByClassName("mySlides");
-    // let dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    // if (slideIndex > slides.length) {slideIndex = 1}    
-    // for (i = 0; i < dots.length; i++) {
-    //   dots[i].className = dots[i].className.replace(" active", "");
-    // }
-    slides[slideIndex-1].style.display = "block";  
-    // dots[slideIndex-1].className += " active";
-    setTimeout(this.showSlides, 2000); // Change image every 2 seconds
   }
 
 }
