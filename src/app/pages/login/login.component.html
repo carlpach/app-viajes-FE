@@ -1,14 +1,14 @@
 <form  [formGroup]="loginForm" class="form" (ngSubmit)="onSubmit()">
     <p class="form-title">Inicia sesión</p>
      <div class="input-container">
-        <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email">
+        <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
         <p *ngIf="(submitted && loginForm?.get('email')?.hasError('required'))">Este campo es requerido</p>
       <p *ngIf="(submitted && loginForm?.get('email')?.hasError('pattern'))">No cumple el formato de email</p>
        <span>
        </span>
    </div>
    <div class="input-container">
-    <input formControlName="password" type="password" class="form-control" id="exampleFormControlInput2" placeholder="Enter password">
+    <input formControlName="password" type="password" class="form-control" id="exampleFormControlInput2" placeholder="Contraseña">
     <p *ngIf="(submitted && loginForm?.get('password')?.hasError('required'))">Este campo es requerido</p>
     <p *ngIf="(submitted && loginForm?.get('password')?.hasError('pattern'))">No cumple el formato de password(1 mayuscula, 1 minuscula, 1 numero y 1 caracter especial)</p>
      </div>
