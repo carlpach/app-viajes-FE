@@ -7,7 +7,6 @@
 
   <h2>{{ alojamiento!.name }} </h2>
   <h2>{{ alojamiento!.type }} en {{ alojamiento!.city}} </h2>
-  <h2>{{ alojamiento!.rooms.length }} tipos de habitación disponible </h2>
 
   <div *ngFor="let image of alojamiento!.images">
     <img src="{{ image }}" alt="{{ alojamiento!.name }}" />
@@ -25,17 +24,37 @@
 
 
 <div class="container">
+  <h2>{{ alojamiento!.rooms.length }} tipo/s de habitación disponible/s </h2>
+
   <ul class="list">
       <li class="itemlist" *ngFor="let room of habitaciones">
           <h3>{{room.name}}</h3>
+
+          <div class="itemlist__flex" >
+            <p>Habitacion para hasta: </p>
+            <div *ngFor="let x of generateArray(peopleSearched)" >
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+            </div>            
+          </div>
+
+
           <p>{{room.description}}</p>
+
+          <div class="b-features" >
+            <div class="b-features__item" *ngFor="let feat of room.features" >{{ feat }}</div> 
+          </div>
+
+          <div>
+            <p>Precio por 1 noche:</p>
+            <p>{{room.price}}</p>            
+          </div>
+
+          <p>(Total por {{ nightsSearched }} noches) Incluye impuestos y cargos</p>
           <p>€ {{room.price * nightsSearched}}</p>
-          <p>(Total) Incluye impuestos y cargos</p>
-          <img src="{{room.images[0]}}" alt="{{room.name}}" />
           <button (click)="clickBook(room)" >Reservar</button>
           <div *ngIf="userRole == 'admin'">
             <!-- Opcion de editar aquí -->
-            <button (click)="editRoom(room)">Editar</button>
+              <mat-icon (click)="editRoom(room)" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
           </div>
       </li>
   </ul>

@@ -113,7 +113,7 @@ export class AlojamientosComponent {
     console.log(alojamiento);
     
     this.map.googleMap!.setCenter(alojamiento.location);
-    this.map.googleMap!.setZoom(13);
+    this.map.googleMap!.setZoom(15);
   
   }
 
