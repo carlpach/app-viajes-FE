@@ -37,7 +37,7 @@ export class ReservaComponent {
   public showInfoIzq: boolean = true;
   public showPayment: boolean = true;
 
-  public imagesHotel: string[] = [];
+  public imagesRoom: string[] = [];
   public responsiveOptions: any[] = [
     {
       breakpoint: '1024px',
@@ -69,7 +69,7 @@ export class ReservaComponent {
     console.log("selected room is -------", this.room);
     this.alojamiento = this.accommodationApi.getAccommodSelected();
     // carousel de imagenes de rooms en reservar
-    this.imagesHotel = this.alojamiento.images;
+    this.imagesRoom = this.room.images;
 
 
     // this.user = this.AuthService.getUser();
@@ -101,6 +101,17 @@ export class ReservaComponent {
     });
 
 
+  }
+
+  generateStarsArray(level: number): number[] {
+    console.log("type of parameter --------", typeof level);
+  
+    return Array(Number(level)).fill(0).map((_, i) => i + 1);
+  }
+
+  generateNoStarsArray(level: number): number[] {
+    const levelReturn = Math.abs(level - 5)
+    return Array(levelReturn).fill(0).map((_, i) => i + 1);
   }
 
   public clickIrAPagar() {

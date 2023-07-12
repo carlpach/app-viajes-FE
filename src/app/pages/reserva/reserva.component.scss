@@ -129,6 +129,8 @@ body {
   color: black;
   font-size: 15px;
   font-weight:600;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 h3{
   font-size: 18px;
@@ -137,7 +139,12 @@ h3{
 }
 .taxes{
   text-align: right;
-  font-size: 10px;
+  font-size: 12px;
+}
+
+.precioTotal {
+  font-weight: 600;
+  font-size: 25px;
 }
 .modal {
   width: fit-content;
@@ -283,6 +290,13 @@ h3{
     -moz-appearance: textfield;
   }
 
+
+  .checked {
+    color: orange ;
+  }
+  .unchecked {
+    color: grey;
+  }
 
 textarea{
    
