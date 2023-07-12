@@ -1,0 +1,21 @@
+<div class="datos">
+<div>
+<h2>{{booking.nameAlojamiento}}</h2>
+<span>Entry</span>
+<p>{{booking.dateEntry}}</p>
+<span>Departure</span>
+<p>{{booking.dateDeparture}}</p>
+<span>Nights</span>
+<p>{{booking.nights}}</p>
+<span>People</span>
+<p>{{booking.people}}</p>
+<p>${{booking.price}}</p>
+</div>
+<img src="{{booking.image}}" alt="imagen hotel">
+</div>
+
+<div class="botones">
+    <button class="boton" (click)="editBooking()">Editar</button>
+    <button class="boton" (click)="deleteBooking()">Cancelar</button>
+</div>
+
