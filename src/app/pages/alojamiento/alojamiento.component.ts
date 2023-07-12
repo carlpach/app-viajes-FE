@@ -63,13 +63,11 @@ export class AlojamientoComponent {
 
   }
 
-  generateArray(number: number): number[] {
-    return Array(number).fill(0).map((_, i) => i + 1);
-  }
-
 
   generateStarsArray(level: number): number[] {
-    return Array(level).fill(0).map((_, i) => i + 1);
+    console.log("type of parameter --------", typeof level);
+  
+    return Array(Number(level)).fill(0).map((_, i) => i + 1);
   }
 
   generateNoStarsArray(level: number): number[] {
