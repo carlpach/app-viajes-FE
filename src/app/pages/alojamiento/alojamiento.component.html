@@ -11,15 +11,15 @@
     <h3 class="b-subtitle" >{{ alojamiento!.type }} en {{ alojamiento!.city}} </h3>
   </div>
 
-  <div *ngFor="let image of alojamiento!.images">
+  <!-- <div *ngFor="let image of alojamiento!.images">
     <img src="{{ image }}" alt="{{ alojamiento!.name }}" />
-  </div>
+  </div> -->
 
 
   <div class="card">
-    <p-galleria [(value)]="imagesHotel" [showIndicators]="true" [showThumbnails]="false" [changeItemOnIndicatorHover]="true" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }"> 
+    <p-galleria [value]="imagesHotel" [showIndicators]="true" [showThumbnails]="false" [changeItemOnIndicatorHover]="true" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }"> 
         <ng-template pTemplate="item" let-item>
-            <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
+            <img [src]="item" style="width: 100%; display: block;" />
         </ng-template>
     </p-galleria>
 </div>

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { AccommodationsI, RoomI } from '../../models/interfaces';
 import { AccommodationService } from 'src/app/services/accommodation.service';
-
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,8 +17,22 @@ export class AlojamientoComponent {
   public peopleSearched: any;
   public userRole: string | undefined;
   public slideIndex = 0;
-  imagesHotel: string[] | undefined;
+  imagesHotel?: any;
 
+  responsiveOptions: any[] = [
+    {
+        breakpoint: '1024px',
+        numVisible: 5
+    },
+    {
+        breakpoint: '768px',
+        numVisible: 3
+    },
+    {
+        breakpoint: '560px',
+        numVisible: 1
+    }
+];
   constructor(private accommodationApi: AccommodationService, public AuthService:AuthService, private router: Router) {
     this.userRole = this.AuthService.getRole();
     // console.log("user role --------", this.userRole);
@@ -39,10 +52,10 @@ export class AlojamientoComponent {
     }
     console.log("this.habitaciones  ---", this.alojamiento );
 
-    this.imagesHotel = this.alojamiento.images;
-    console.log("this.imagesHotel  ---", this.imagesHotel );
+    this.imagesHotel  = this.alojamiento.images;
 
-  }
+    }
+
 
   ngAfterViewInit(): void {
     // console.log(this.slideIndex);
