@@ -1,11 +1,18 @@
 
-<div *ngIf="!submittedDetails" >
+<div class="body">
+<div class="resumenHab">
+  <div class="nombreHotel" *ngIf="!submittedDetails" >
     <div>
         <h2>{{ alojamiento!.name }} </h2>
         <h2>{{ alojamiento!.type }} in {{ alojamiento!.city}} </h2>
         <div>{{ alojamiento!.level }} estrellas</div>
     </div>
-
+    <div class="roomImage" *ngFor="let image of room.images">
+      <img src="{{ image }}" alt="{{ room.name }}" />
+  </div>
+</div>
+<div class="infoIzq">
+<div class="datosReserva">
     <h2>Los datos de tu próxima reserva </h2>
     <div>
         <p>Entrada</p>
@@ -23,28 +30,26 @@
         <p>Tu seleccion de habitación</p>
         <div> {{ room.name }} </div>
         <ul>
-            <li *ngFor="let feature of room.features"> 
+            <li *ngFor="let feature of room.features">
                 {{ feature }}
             </li>
         </ul>
-        <div *ngFor="let image of room.images">
-            <img src="{{ image }}" alt="{{ room.name }}" />
-        </div>
+      </div>
         <h3>Alojamiento en {{ citySearched }} </h3>
     </div>
 </div>
 
-<div class="desglose"> 
+<div class="desglose">
     <h3>Desglose del precio</h3>
     <div>
         <h3>Total</h3>
         <div>
             <p>€ {{room.price! * nightsSearched}}</p>
-            <p>Incluye impuestos y cargos</p>            
+            <p>Incluye impuestos y cargos</p>
         </div>
     </div>
 </div>
-
+</div>
 
 <div >
     <form class="b-form" *ngIf="!submittedDetails" [formGroup]="bookingForm" (ngSubmit)="clickIrAPagar()" >
@@ -57,7 +62,7 @@
         <button>Ir al pago</button>
     </form>
 
-    
+
 </div>
 <!--
 <div *ngIf="submittedDetails && !isPaid">
@@ -79,7 +84,7 @@
         <p *ngIf="(submittedPayForm && payForm?.get('CVC')?.hasError('required'))">Este campo es requerido</p>
 
         <button>Completar la reserva</button>
-    </form> 
+    </form>
 
 </div>
 -->
@@ -145,7 +150,7 @@
         <hr class="line">
       </div>
       <div class="credit-card-info--form">
-        
+
         <div class="input_container">
           <label  for="password_field" class="input_label">Name</label>
           <input formControlName="name" id="password_field" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your name">
@@ -180,4 +185,5 @@
 
 <div *ngIf="isPaid">
     <app-confirmation></app-confirmation>
-</div> 
+</div>
+</div>
