@@ -1,0 +1,21 @@
+<div >
+<form class="gral" [formGroup]="reservaForm" (ngSubmit) = "editBooking()">
+<div class="input">
+<label for="">Entry</label>
+<br>
+<input type="date" formControlName="dateEntry">
+<br>
+<label for="">Departure</label>
+<br>
+<input type="date" formControlName="dateDeparture">
+<br>
+<label for="">People</label>
+<br>
+<input type="text" formControlName="people">
+<br>
+</div>
+
+<button>Editar reserva</button>
+
+</form>
+</div>

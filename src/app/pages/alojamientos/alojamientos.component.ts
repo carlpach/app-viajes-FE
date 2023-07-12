@@ -14,7 +14,9 @@ export class AlojamientosComponent {
 
   public citySearched: any;
   public startSearched: any;
+  public dateStartFormated: any;
   public endSearched: any;
+  public dateEndFormated: any;
   public peopleSearched: any;
   public nightsSearched: any;
 
@@ -43,6 +45,9 @@ export class AlojamientosComponent {
     this.peopleSearched = sessionStorage.getItem('people');
     this.nightsSearched = sessionStorage.getItem('nights');
 
+    this.dateStartFormated = this.startSearched.split("-")[1] + "-" + this.startSearched.split("-")[2]
+    this.dateEndFormated = this.endSearched.split("-")[1] + "-" + this.endSearched.split("-")[2]
+    
     this.map.googleMap!.setCenter({lat: 40.394150, lng: -3.596239}); // Center of Spain
     this.map.googleMap!.setZoom(6);
 

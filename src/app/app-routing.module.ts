@@ -10,6 +10,8 @@ import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { authGuard } from './guard/auth.guard';
 import { EditRoomComponent } from './pages/edit-room/edit-room.component';
+import { EditBookingComponent } from './pages/edit-booking/edit-booking.component';
+import { DetailBookingComponent } from './pages/detail-booking/detail-booking.component';
 
 const routes: Routes = [
 
@@ -32,11 +34,19 @@ const routes: Routes = [
     path:'login', component:LoginComponent
   },
   {
+    path:'detailBooking', component: DetailBookingComponent
+  },
+  {
     path:'profile', component: ProfileComponent, canActivate: [authGuard]
   },
   {
     path: 'edit-room', component: EditRoomComponent, canActivate: [authGuard]
   },
+  {
+    path:':_id', component: EditBookingComponent
+  },
+  
+  
 ];
 
 @NgModule({
