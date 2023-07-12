@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { BookingService } from 'src/app/services/booking.service';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { environment } from 'src/app/environments/environment.local';
+import { GalleriaModule } from 'primeng/galleria';
 
 @Component({
   selector: 'app-reserva',
@@ -36,8 +37,23 @@ export class ReservaComponent {
   public showInfoIzq: boolean = true;
   public showPayment: boolean = true;
 
+  public imagesHotel: string[] = [];
+  public responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5
+  },
+  {
+      breakpoint: '768px',
+      numVisible: 3
+  },
+  {
+      breakpoint: '560px',
+      numVisible: 1
+  }
+];
 
-  constructor(private accommodationApi: AccommodationService, public AuthService: AuthService, private router: Router, private bookingApi: BookingService) {}
+  constructor(private accommodationApi: AccommodationService, public AuthService: AuthService, private router: Router,  private bookingApi: BookingService) {}
 
   ngOnInit(): void {
 
@@ -52,6 +68,9 @@ export class ReservaComponent {
     this.room = this.accommodationApi.getRoomSelected();
     console.log("selected room is -------", this.room);
     this.alojamiento = this.accommodationApi.getAccommodSelected();
+    // carousel de imagenes de rooms en reservar
+    this.imagesHotel = this.alojamiento.images;
+
 
     // this.user = this.AuthService.getUser();
     this.user = this.AuthService.getUser();

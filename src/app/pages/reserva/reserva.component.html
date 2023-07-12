@@ -10,8 +10,18 @@
     <div class="roomsImages">
       <div class="roomImage" *ngFor="let image of room.images">
       <img src="{{ image }}" alt="{{ room.name }}" />
+      {{ this.imagesHotel.push(image) }}
       </div>
   </div>
+  <div class="card">
+    <p-galleria [value]="imagesHotel" [showIndicators]="true" [showThumbnails]="false" [changeItemOnIndicatorHover]="true" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }">
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item" style="width: 100%; display: block;" />
+      </ng-template>
+    </p-galleria>
+  </div>
+
+
 </div>
 
 <div class="infoIzq" *ngIf="showInfoIzq">
