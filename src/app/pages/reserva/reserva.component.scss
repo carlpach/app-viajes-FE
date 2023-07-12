@@ -1,49 +1,69 @@
-.body{
+body {
   background-color: #f2f2f2;
   display: flex;
+  padding: 0 5%;
 }
-.modal {
-    width: fit-content;
-    height: fit-content;
-    background: #FFFFFF;
-    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 26px;
-    max-width: 450px;
-  }
-  .datosReserva {
-    border: 1px solid #ccc;
-    margin-top: 100px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    background-color: lightcoral;
-    margin-left: 20px;
-    width: 30%;
-  }
-  .desglose{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 20px;
-    width: 30%;
-    margin-top: 20px;
-    background-color: lightgreen;
 
-    h3{
-        font-size: 16px;
-        font-weight: 800;
-        line-height: 28px;
-        font-family: Roboto, sans-serif;
-        letter-spacing: .009375em;
-        margin: 0 0 8px;
-    }
+.infoIzq {
+  width: calc(45% - 5%);
+  margin-right: 5%;
 }
-.resumenHab{
+
+.resumenHab {
+  width: calc(55% - 5%);
+  margin-left: 5%;
+  align-items: center;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  width: 40%;
-  float: right;
+}
+
+.datosReserva {
+  border: 1px solid #ccc;
   margin-top: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: lightcoral;
+  width: 100%;
+}
+
+.desglose {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+  background-color: lightgreen;
+  padding: 10px;
+}
+
+.nombreHotel {
+  display: flex;
+  margin-top: 20px;
+}
+
+.resumenHab {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+}
+
+.roomImage img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: auto;
+}
+
+
+.modal {
+  width: fit-content;
+  height: fit-content;
+  background: #FFFFFF;
+  box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 26px;
+  max-width: 450px;
 }
   .form {
     display: flex;
@@ -51,15 +71,7 @@
     gap: 20px;
     padding: 20px;
   }
-  .nombreHotel{
-    display: flex;
-  }
-.roomImage img {
-    width: 100%;
-    height: 20vh;
 
-    justify-content: space-around;
-  }
 
   .payment--options {
     width: calc(100% - 40px);
