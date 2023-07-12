@@ -1,0 +1,39 @@
+.boton {
+  font-size: 28px;
+  color: white;
+}
+
+.dropdown-item {
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px 10px 10px;
+  background: rgb(28, 0, 96);
+  background: linear-gradient(48deg, rgb(28, 0, 96) 0%, rgb(51, 9, 121) 52%, rgb(70, 0, 168) 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  align-items: center;
+}
+
+h3 {
+  font-size: 25px;
+  color: white;
+  margin: 6px;
+  font-weight: 900;
+}
+
+.mat-mdc-button.mat-unthemed {
+  --mdc-text-button-label-text-color: #fff;
+  font-size: 35px;
+  padding-bottom: 7px;
+}
+
+.perfil {
+  color: black;
+  border: solid rgb(250, 107, 107);
+  padding: 5px;
+  border-radius: 50%;
+  background: rgb(250, 107, 107);
+}/*# sourceMappingURL=navbar.component.css.map */

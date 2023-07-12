@@ -8,20 +8,13 @@
 html, body {
   height: 100%;
 }
-a:link, a:visited {
-  text-decoration: none;
-}
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgb(235, 235, 235);
 }
 
-html, body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+h1, h2, h3, p {
+  color: rgb(16, 16, 73);
 }/*# sourceMappingURL=styles.css.map */

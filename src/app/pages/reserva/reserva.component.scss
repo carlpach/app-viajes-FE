@@ -1,37 +1,35 @@
 body {
   background-color: #f2f2f2;
-  display: flex;
-  padding: 0 5%;
 }
-
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-left: 15%;
+  margin-right: 15%;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
 .infoIzq {
-  width: calc(45% - 5%);
-  margin-right: 5%;
+  width: 30%;
 }
 
 .resumenHab {
-  width: calc(55% - 5%);
-  margin-left: 5%;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  width: 65%;
 }
 
 .datosReserva {
   border: 1px solid #ccc;
-  margin-top: 100px;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   background-color: lightcoral;
   width: 100%;
+  padding: 10px;
 }
 
 .desglose {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   margin-top: 20px;
   background-color: lightgreen;
   padding: 10px;
@@ -39,23 +37,26 @@ body {
 
 .nombreHotel {
   display: flex;
-  margin-top: 20px;
-}
-
-.resumenHab {
-  display: flex;
   flex-direction: column;
-  width: 100%;
+  background-color: lightgreen;
   padding: 10px;
 }
-
+.roomImages{
+  margin-top: 20px;
+}
 .roomImage img {
   width: auto;
   height: auto;
   max-width: 100%;
   max-height: auto;
 }
-
+.payment{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: lightsalmon;
+}
 
 .modal {
   width: fit-content;
