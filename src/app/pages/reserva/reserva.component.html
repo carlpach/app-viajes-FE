@@ -20,8 +20,11 @@
         (ngSubmit)="clickIrAPagar()"
       >
         <h2>Introduce tus datos</h2>
+        <label>Nombre</label>
         <input placeholder="Nombre" formControlName="name" type="text" />
-        <input placeholder="Apellido" formControlName="lastname" type="text" />
+        <label>Apelidos</label>
+        <input placeholder="Apellidos" formControlName="lastname" type="text" />
+        <label>E-mail</label>
         <input placeholder="Email" formControlName="email" type="email" />
         <h2>Peticiones especiales</h2>
         <textarea
@@ -29,7 +32,7 @@
           formControlName="peticiones"
           type="textarea"
         ></textarea>
-        <button>Ir al pago</button>
+        <button class="pago">Ir al pago</button>
       </form>
 
     <!--

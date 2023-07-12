@@ -35,6 +35,7 @@ body {
   margin-top: 20px;
   background-color: lightgreen;
   padding: 10px;
+  width: 100%;
 }
 
 .nombreHotel {
@@ -42,10 +43,12 @@ body {
   flex-direction: column;
   background-color: lightgreen;
   padding: 10px;
+  width: 100%;
 }
 
-.roomImages {
+.roomsImages {
   margin-top: 20px;
+  width: 100%;
 }
 
 .roomImage img {
@@ -60,7 +63,19 @@ body {
   flex-direction: column;
   margin-top: 20px;
   padding: 10px;
-  background-color: lightsalmon;
+  background-color: rgb(90, 135, 192);
+  width: 100%;
+}
+
+.pago {
+  border: none;
+  background-color: rgb(250, 107, 107);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 10px;
+  margin: 20px;
+  font-size: 18px;
+  width: 70%;
 }
 
 .modal {
