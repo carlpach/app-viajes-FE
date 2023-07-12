@@ -45,18 +45,18 @@
           </div>
 
           <div>
-            <p>Precio por 1 noche:</p>
-            <p>{{room.price}}</p>            
+            <p>Total por {{ nightsSearched }} noche/s:</p>
+            <p class="b-precio" >€ {{room.price * nightsSearched}}</p>
+            <h4>Incluye impuestos y cargos</h4>            
           </div>
 
-          <p>(Total por {{ nightsSearched }} noches) Incluye impuestos y cargos</p>
-          <p>€ {{room.price * nightsSearched}}</p>
+
           <button (click)="clickBook(room)" >Reservar</button>
-          <div *ngIf="userRole == 'admin'">
+          <div class="" *ngIf="userRole == 'admin'">
             <!-- Opcion de editar aquí -->
               <mat-icon (click)="editRoom(room)" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
           </div>
       </li>
   </ul>
-  <div *ngIf="habitaciones?.length == 0" >Ya no hay habitaciones disponibles en este hotel...</div>
+  <div class="b-message" *ngIf="habitaciones?.length == 0" >Ya no hay habitaciones disponibles en este hotel...</div>
 </div>
