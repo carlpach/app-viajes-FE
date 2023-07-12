@@ -6,11 +6,11 @@
     <p class="message">Regístrate y accede a nuestra app de reservas</p>
         <div class="flex">
         <label>
-            <input required="" formControlName="name" placeholder="Firstname" type="text" class="input">
+            <input required="" formControlName="name" placeholder="Nombre" type="text" class="input">
         </label>
 
         <label>
-            <input required="" formControlName="lastname" placeholder="Lastname" type="text" class="input">
+            <input required="" formControlName="lastname" placeholder="Apellido" type="text" class="input">
         </label>
     </div>
 
@@ -21,16 +21,16 @@
     </label>
 
     <label>
-        <input required="" formControlName="password" placeholder="Password" type="password" class="input">
+        <input required="" formControlName="password" placeholder="Contraseña" type="password" class="input">
         <p *ngIf="(submitted && registerForm?.get('password')?.hasError('required'))">Este campo es requerido</p>
         <p *ngIf="(submitted && registerForm?.get('password')?.hasError('pattern'))">No cumple el formato de password(1 mayuscula, 1 minuscula, 1 numero y 1 caracter especial)</p>
     </label>
     <label>
-        <input required="" formControlName="password" placeholder="Confirm password" type="password" class="input">
+        <input required="" formControlName="password" placeholder="Confirmar Contraseña" type="password" class="input">
         <p *ngIf="(submitted && registerForm?.get('password')?.hasError('required'))">Este campo es requerido</p>
         <p *ngIf="(submitted && registerForm?.get('password')?.hasError('pattern'))">No cumple el formato de password(1 mayuscula, 1 minuscula, 1 numero y 1 caracter especial)</p>
     </label>
     <button class="submit">REGISTER</button>
     <p class="signin">Ya tienes cuenta? <a href="/login">LOG IN</a> </p>
-    <p>Al crear una cuenta, aceptas nuestros <a href=""> Términos y condiciones</a> y la <a href=""> Política de privacidad</a></p>
+    <p class="pa">Al crear una cuenta, aceptas nuestros <a href=""> Términos y condiciones</a> y la <a href=""> Política de privacidad</a></p>
 </form>
