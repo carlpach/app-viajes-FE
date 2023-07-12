@@ -28,6 +28,10 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
 import { GoogleMapsModule } from '@angular/google-maps';
 import { EditRoomComponent } from './pages/edit-room/edit-room.component';
 import {MatSliderModule} from '@angular/material/slider'
+import { EditBookingComponent } from './pages/edit-booking/edit-booking.component';
+import { DetailBookingComponent } from './pages/detail-booking/detail-booking.component';
+
+
 import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
@@ -43,7 +47,9 @@ import { MatIconModule } from '@angular/material/icon'
     ProfileComponent,
     ReservaComponent,
     ConfirmationComponent,
-    EditRoomComponent
+    EditRoomComponent,
+    EditBookingComponent,
+    DetailBookingComponent,
 
   ],
 

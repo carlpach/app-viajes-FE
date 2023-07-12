@@ -1,0 +1,11 @@
+<form [formGroup]="reservaForm" (ngSubmit) = "editBooking()">
+<label for="">Entry</label>
+<input type="text" formControlName="dateEntry">
+<label for="">Departure</label>
+<input type="text" formControlName="dateDeparture">
+<label for="">People</label>
+<input type="text" formControlName="people">
+<label for="">Nights</label>
+<input type="text" formControlName="nights">
+<button>Editar reserva</button>
+</form>
