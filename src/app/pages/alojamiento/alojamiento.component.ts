@@ -18,11 +18,11 @@ export class AlojamientoComponent {
   public peopleSearched: any;
   public userRole: string | undefined;
   public slideIndex = 0;
+  imagesHotel: string[] | undefined;
 
   constructor(private accommodationApi: AccommodationService, public AuthService:AuthService, private router: Router) {
     this.userRole = this.AuthService.getRole();
     // console.log("user role --------", this.userRole);
-    
   }
 
   ngOnInit(): void {
@@ -39,7 +39,14 @@ export class AlojamientoComponent {
     }
     console.log("this.habitaciones  ---", this.alojamiento );
 
-    // this.showSlides(this.slideIndex);
+    this.imagesHotel = this.alojamiento.images;
+    console.log("this.imagesHotel  ---", this.imagesHotel );
+
+  }
+
+  ngAfterViewInit(): void {
+    // console.log(this.slideIndex);
+    // this.showSlides();
 
   }
 
@@ -66,26 +73,6 @@ export class AlojamientoComponent {
     this.accommodationApi.setRoomSelected(room);
     this.router.navigate(["/reserva"]);
 
-  }
-
-  public showSlides(slideIndex: any) {
-    let i;
-    let slides: any = document.getElementsByClassName("mySlides");
-    console.log(slides);
-    console.log(slideIndex);
-    
-    // let dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    // if (slideIndex > slides.length) {slideIndex = 1}    
-    // for (i = 0; i < dots.length; i++) {
-    //   dots[i].className = dots[i].className.replace(" active", "");
-    // }
-    slides[slideIndex-1].style.display = "block";  
-    // dots[slideIndex-1].className += " active";
-    setTimeout(this.showSlides, 2000); // Change image every 2 seconds
   }
 
 }
