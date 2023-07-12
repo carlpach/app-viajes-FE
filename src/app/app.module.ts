@@ -32,6 +32,7 @@ import { EditBookingComponent } from './pages/edit-booking/edit-booking.componen
 import { DetailBookingComponent } from './pages/detail-booking/detail-booking.component';
 
 
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { DetailBookingComponent } from './pages/detail-booking/detail-booking.co
     MatDatepickerModule,
     MatNativeDateModule,
     GoogleMapsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatIconModule
 
   ],
 
