@@ -10,7 +10,7 @@
     <div> {{ dateStartFormated }}   a   {{ dateEndFormated }}</div>
     <div class="b-noches"> ({{ nightsSearched }} noches) </div>    
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
-    <div> {{ peopleSearched }} adultos </div>    
+    <div> {{ peopleSearched }} personas </div>    
   </div>
 
 </div>
@@ -20,7 +20,7 @@
 </div> 
 
 <div class="b-filter">
-  <mat-slider class="" min="50" max="500" step="10" showTickMarks=false discrete=true  >
+  <mat-slider class="" min="40" max="350" step="10" showTickMarks=false discrete=true  >
     <input value="20" matSliderStartThumb [(ngModel)]="valueDown" (ngModelChange)="changeDown($event)">
     <input value="350" matSliderEndThumb [(ngModel)]="valueUp" (ngModelChange)="changeUp($event)">
 

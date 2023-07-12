@@ -1,3 +1,6 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
 /* You can add global styles to this file, and also import other style files */
 *
 {padding: 0;
@@ -11,4 +14,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 
 h1, h2, h3, p {
     color: rgb(16, 16, 73);
+}
+
+a {
+    text-decoration: none;
 }

@@ -1,43 +1,66 @@
 
 <div>
-  <span *ngFor="let star of generateStarsArray(alojamiento!.level)" class="fa fa-star checked">
-  </span>
-  <span *ngFor="let star of generateNoStarsArray(alojamiento!.level)" class="fa fa-star unchecked">
-  </span>
 
-  <h2>{{ alojamiento!.name }} </h2>
-  <h2>{{ alojamiento!.type }} en {{ alojamiento!.city}} </h2>
-  <h2>{{ alojamiento!.rooms.length }} tipos de habitación disponible </h2>
+  <div class="b-containerHotel" >
+    <span *ngFor="let star of generateStarsArray(alojamiento!.level)" class="fa fa-star checked">
+    </span>
+    <span *ngFor="let star of generateNoStarsArray(alojamiento!.level)" class="fa fa-star unchecked">
+    </span>    
 
-  <div *ngFor="let image of alojamiento!.images">
-    <img src="{{ image }}" alt="{{ alojamiento!.name }}" />
+    <h2 class="b-title">{{ alojamiento!.name }} </h2>
+    <h3 class="b-subtitle" >{{ alojamiento!.type }} en {{ alojamiento!.city}} </h3>
   </div>
 
-
-  <div class="slideshow-container">
-    <div class="mySlides fade" *ngFor="let image of alojamiento!.images">
-      <!-- <div class="numbertext">1 / 3</div> -->
-      <img src="{{ image }}" alt="{{ alojamiento!.name }}" style="width:100%">
-    </div>
-  </div>
-
+  <div class="card">
+    <p-galleria [value]="imagesHotel" [showIndicators]="true" [showThumbnails]="false" [changeItemOnIndicatorHover]="true" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }"> 
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item" style="width: 100%; display: block;" />
+        </ng-template>
+    </p-galleria>
 </div>
 
 
 <div class="container">
+  <h2 class="b-titleRooms">{{ alojamiento!.rooms.length }} resultado/s</h2>
+
   <ul class="list">
       <li class="itemlist" *ngFor="let room of habitaciones">
+        <div>
+
           <h3>{{room.name}}</h3>
-          <p>{{room.description}}</p>
-          <p>€ {{room.price * nightsSearched}}</p>
-          <p>(Total) Incluye impuestos y cargos</p>
-          <img src="{{room.images[0]}}" alt="{{room.name}}" />
-          <button (click)="clickBook(room)" >Reservar</button>
-          <div *ngIf="userRole == 'admin'">
-            <!-- Opcion de editar aquí -->
-            <button (click)="editRoom(room)">Editar</button>
+          <div class="itemlist__flex" >
+            <p>Habitacion para hasta: </p>
+            <div *ngFor="let x of generateStarsArray(peopleSearched)" >
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+            </div>            
           </div>
+
+          <p>{{room.description}}</p>
+
+          <div class="b-features" >
+            <div class="b-features__item" *ngFor="let feat of room.features" >{{ feat }}</div> 
+          </div>
+
+        </div>  
+
+
+        <div class="b-li__precio" >
+          <div class="b-li__preciosub">
+            <p>Total por {{ nightsSearched }} noche/s:</p>
+            <p class="b-precio" >€ {{room.price * nightsSearched}}</p>
+            <h4>Incluye impuestos y cargos</h4>            
+          </div>
+
+          <div class="b-buttons">
+            <div class="" *ngIf="userRole == 'admin'">
+              <!-- Opcion de editar aquí -->
+              <mat-icon (click)="editRoom(room)" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+            </div>
+            <button (click)="clickBook(room)" >Reservar</button>
+          </div>
+        </div>
+
       </li>
   </ul>
-  <div *ngIf="habitaciones?.length == 0" >Ya no hay habitaciones disponibles en este hotel...</div>
+  <div class="b-message" *ngIf="habitaciones?.length == 0" >Ya no hay habitaciones disponibles en este hotel...</div>
 </div>

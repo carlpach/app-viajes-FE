@@ -3,33 +3,28 @@ body {
 }
 .container{
   display: flex;
-  flex-wrap: wrap;
   margin-top: 50px;
   margin-left: 15%;
   margin-right: 15%;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  flex-direction: column-reverse;
 }
 .infoIzq {
-  width: 30%;
+  width: 100%;
 }
 
 .resumenHab {
-  width: 65%;
+  width: 100%;
 }
 
 .datosReserva {
   border: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
   background-color: lightcoral;
   width: 100%;
   padding: 10px;
 }
 
 .desglose {
-  display: flex;
-  flex-direction: column;
   margin-top: 20px;
   background-color: lightgreen;
   padding: 10px;
@@ -37,8 +32,6 @@ body {
 }
 
 .nombreHotel {
-  display: flex;
-  flex-direction: column;
   background-color: lightgreen;
   padding: 10px;
   width: 100%;
@@ -54,8 +47,6 @@ body {
   max-height: auto;
 }
 .payment{
-  display: flex;
-  flex-direction: column;
   margin-top: 20px;
   padding: 10px;
   background-color: rgb(90,135,192);
@@ -69,7 +60,19 @@ body {
   border-radius: 10px;
   margin: 20px;
   font-size: 18px;
-  width: 70%;
+  width: 87%;
+}
+h2{
+  color: rgb(90,135,192);
+}
+h3{
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(90,135,192);
+}
+.taxes{
+  text-align: right;
+  font-size: 11px;
 }
 .modal {
   width: fit-content;

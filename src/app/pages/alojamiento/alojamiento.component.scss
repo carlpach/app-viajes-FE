@@ -1,9 +1,16 @@
 .container{
   align-items: center;
+  margin-top: 30px;
+}
+
+
+.b-containerHotel {
+  margin: 20px;
+
 }
 
 .list{
-    margin-top: 80px;
+    margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -16,20 +23,72 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    text-align: center;
+    text-align: start;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
+    background-color: white;
+    border: none;
 }
+
+.itemlist__flex {
+  display: flex;
+  align-items: center;
+  font-size: 12PX;
+}
+
+mat-icon {
+  color: rgb(80, 80, 80);
+}
+
+.b-features {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+
+.b-features__item {
+  padding: 0 3px;
+  border: 1.2px solid rgb(84, 68, 119);
+  border-radius: 3px;
+}
+
+.b-li__precio {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;    
+    margin-top: 30px
+}
+
+.b-li__preciosub {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.b-precio {
+  font-weight: 800;
+  font-size: 20px;
+}
+
 
 h3 {
   font-size: 20px;
   margin-bottom: 5px;
-  color: #187bcd;
+  color: #0c3455;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 11px;
+  margin: 0;
 }
 
 p {
   margin-bottom: 5px;
-  color: #337ab7;
+  color: #2b3035;
 }
 
 img {
@@ -39,21 +98,32 @@ img {
   border-radius: 5px;
 }
 
+.b-title {
+  font-size: 27px;
+  margin: 0;
+}
+
+.b-titleRooms {
+  margin-left: 20px;
+}
+
+.b-subtitle {
+  font-size: 17px;
+}
 
 .itemlist:hover{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-button{
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+button {
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  display: inline-block;
+  background-color: rgb(250,107,107);
+  color: white;
+  padding: 7px 13px;
+  border-radius: 10px;
+  font-size: 15px;
+
 }
 
 button:hover{
@@ -73,21 +143,15 @@ button:focus {
   color: grey;
 }
 
-
-
-.mySlides {display: none;}
-
-.active {
-  background-color: #717171;
+img {
+  max-height: 210px;
 }
 
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+.b-message {
+  text-align: center;
+  line-height: 1.5;
 }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+.b-buttons {
+  text-align: end;
 }
