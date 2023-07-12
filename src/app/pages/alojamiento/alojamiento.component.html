@@ -28,10 +28,9 @@
         <div>
 
           <h3>{{room.name}}</h3>
-
           <div class="itemlist__flex" >
             <p>Habitacion para hasta: </p>
-            <div *ngFor="let x of generateArray(peopleSearched)" >
+            <div *ngFor="let x of generateStarsArray(peopleSearched)" >
               <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
             </div>            
           </div>
@@ -52,7 +51,7 @@
             <h4>Incluye impuestos y cargos</h4>            
           </div>
 
-          <div>
+          <div class="b-buttons">
             <div class="" *ngIf="userRole == 'admin'">
               <!-- Opcion de editar aquí -->
               <mat-icon (click)="editRoom(room)" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
