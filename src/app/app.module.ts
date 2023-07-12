@@ -30,7 +30,7 @@ import { EditRoomComponent } from './pages/edit-room/edit-room.component';
 import {MatSliderModule} from '@angular/material/slider'
 import { EditBookingComponent } from './pages/edit-booking/edit-booking.component';
 import { DetailBookingComponent } from './pages/detail-booking/detail-booking.component';
-
+import { GalleriaModule } from 'primeng/galleria';
 
 import { MatIconModule } from '@angular/material/icon'
 
@@ -67,7 +67,8 @@ import { MatIconModule } from '@angular/material/icon'
     MatNativeDateModule,
     GoogleMapsModule,
     MatSliderModule,
-    MatIconModule
+    MatIconModule,
+    GalleriaModule
 
   ],
 
