@@ -1,26 +1,36 @@
-<div class="cajon">
-  <h2 class="titulo">Crea una cuenta</h2>
-  <form [formGroup]="registerForm" class="register" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label"> Nombre </label>
-        <p><input formControlName="name" type="text" class="form-control" id="exampleFormControlInput1"></p>
-        <label for="exampleFormControlInput2" class="form-label"> Apellidos </label>
-        <p><input formControlName="lastname" type="text" class="form-control" id="exampleFormControlInput2"></p>
-        <label for="exampleFormControlInput3" class="form-label"> E-mail </label>
-        <p><input formControlName="email" type="text" class="form-control" id="exampleFormControlInput3" placeholder="email@email.com"></p>
+
+
+
+  <form [formGroup]="registerForm" class="form" (ngSubmit)="onSubmit()">
+    <p class="title">Registrar </p>
+    <p class="message">Regístrate y accede a nuestra app de reservas</p>
+        <div class="flex">
+        <label>
+            <input required="" formControlName="name" placeholder="Nombre" type="text" class="input">
+        </label>
+
+        <label>
+            <input required="" formControlName="lastname" placeholder="Apellido" type="text" class="input">
+        </label>
+    </div>
+
+    <label>
+        <input required="" formControlName="email" placeholder="Email" type="email" class="input">
         <p *ngIf="(submitted && registerForm?.get('email')?.hasError('required'))">Este campo es requerido</p>
         <p *ngIf="(submitted && registerForm?.get('email')?.hasError('pattern'))">No cumple el formato de email</p>
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput4" class="form-label"> Contraseña </label>
-        <p><input formControlName="password" type="text" class="form-control" id="exampleFormControlInput4" placeholder="Contraseña123!"></p>
+    </label>
+
+    <label>
+        <input required="" formControlName="password" placeholder="Contraseña" type="password" class="input">
         <p *ngIf="(submitted && registerForm?.get('password')?.hasError('required'))">Este campo es requerido</p>
         <p *ngIf="(submitted && registerForm?.get('password')?.hasError('pattern'))">No cumple el formato de password(1 mayuscula, 1 minuscula, 1 numero y 1 caracter especial)</p>
-    </div>
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit"> Registrarse </button>
-    </div>
-  </form>
-  <div class="linea"></div>
-  <div class="terminos">Al crear una cuenta, aceptas nuestros <a href=""> Términos y condiciones</a> y la <a href=""> Política de privacidad</a></div>
-  </div>
+    </label>
+    <label>
+        <input required="" formControlName="password" placeholder="Confirmar Contraseña" type="password" class="input">
+        <p *ngIf="(submitted && registerForm?.get('password')?.hasError('required'))">Este campo es requerido</p>
+        <p *ngIf="(submitted && registerForm?.get('password')?.hasError('pattern'))">No cumple el formato de password(1 mayuscula, 1 minuscula, 1 numero y 1 caracter especial)</p>
+    </label>
+    <button class="submit">REGISTER</button>
+    <p class="signin">Ya tienes cuenta? <a href="/login">LOG IN</a> </p>
+    <p class="pa">Al crear una cuenta, aceptas nuestros <a href=""> Términos y condiciones</a> y la <a href=""> Política de privacidad</a></p>
+</form>

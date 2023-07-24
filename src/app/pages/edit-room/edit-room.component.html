@@ -1,0 +1,23 @@
+<div class="todo">
+<img class="img" src={{room.images[0]}}>
+<div>
+<form [formGroup]="roomForm" (ngSubmit) = "editarRoom()">
+    
+        <input class="input" placeholder="nombre" formControlName="name" type="text"/>
+        <p *ngIf="(submitted && roomForm?.get('name')?.hasError('required'))">Este campo es requerido</p>
+    
+        <input class="input" placeholder="description" formControlName="description" type="text"/>
+        <p *ngIf="(submitted && roomForm?.get('description')?.hasError('required'))">Este campo es requerido</p>
+   
+        <input class="input" placeholder="price" formControlName="price" type="number"/>
+        <p *ngIf="(submitted && roomForm?.get('price')?.hasError('required'))">Este campo es requerido</p>
+    
+    <div class="botones"> 
+        <button>Guardar cambios</button>
+        <button (click)="deleteRoom()">Borrar habitacion</button>
+    </div>
+  </form>
+</div>
+</div>
+
+  

@@ -3,27 +3,29 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AlojamientosComponent } from './pages/alojamientos/alojamientos.component';
 import { AlojamientoComponent } from './pages/alojamiento/alojamiento.component';
 import { ReservaComponent } from './pages/reserva/reserva.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { authGuard } from './guard/auth.guard';
+import { EditRoomComponent } from './pages/edit-room/edit-room.component';
+import { EditBookingComponent } from './pages/edit-booking/edit-booking.component';
+import { DetailBookingComponent } from './pages/detail-booking/detail-booking.component';
 
 const routes: Routes = [
+
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
+    path: '', component: HomeComponent, canActivate: [authGuard]
   },
   {
-    path: 'home', component: HomeComponent
+    path: 'alojamientos', component: AlojamientosComponent, canActivate: [authGuard]
   },
   {
-    path: 'alojamientos', component: AlojamientosComponent
+    path:'alojamiento', component: AlojamientoComponent, canActivate: [authGuard]
   },
   {
-    path:'alojamiento', component: AlojamientoComponent
-  },
-  {
-    path:'reserva', component: ReservaComponent
+    path:'reserva', component: ReservaComponent, canActivate: [authGuard]
   },
   {
     path:'register', component:RegisterComponent
@@ -31,6 +33,20 @@ const routes: Routes = [
   {
     path:'login', component:LoginComponent
   },
+  {
+    path:'detailBooking', component: DetailBookingComponent
+  },
+  {
+    path:'profile', component: ProfileComponent, canActivate: [authGuard]
+  },
+  {
+    path: 'edit-room', component: EditRoomComponent, canActivate: [authGuard]
+  },
+  {
+    path:':_id', component: EditBookingComponent
+  },
+  
+  
 ];
 
 @NgModule({

@@ -1,17 +1,20 @@
 <div class="nav">
-<div>
-  <h3>Booking.com</h3>
+  <div>
+    <a routerLink="/" ><h3>TuHotel.com</h3></a>
+  </div>
+  <div>
+    <button class="b-button-profile" *ngIf="AuthService.getToken()" class="perfil" routerLink="/profile">{{user?.name[0]}} {{user?.lastname[0]}}</button>
+  <button class="boton" mat-button [matMenuTriggerFor]="menu">☰</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item><a class="dropdown-item" routerLink="/"> Home </a></button>
+    <button *ngIf="!AuthService.getToken()" mat-menu-item><a class="dropdown-item" routerLink="/register" > Register</a></button>
+    <button *ngIf="!AuthService.getToken()" mat-menu-item><a class="dropdown-item" routerLink="/login" > Login</a></button>
+    <button *ngIf="AuthService.getToken()" mat-menu-item><a class="dropdown-item" routerLink="/profile" > Profile</a></button>
+    <button *ngIf="AuthService.getToken()" mat-menu-item (click)="logOut()"><a class="dropdown-item" routerLink="/profile" > LogOut</a></button>
+  </mat-menu>
+</div>
 </div>
 
-<button class="boton" mat-button [matMenuTriggerFor]="menu">☰</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item><a class="dropdown-item" routerLink="/"> Home </a></button>
-  <button mat-menu-item><a class="dropdown-item" routerLink="/alojamientos"> Alojamientos </a></button>
-  <button mat-menu-item><a class="dropdown-item" routerLink="/register" *ngIf="!token"> Register</a></button>
-  <button mat-menu-item><a class="dropdown-item" routerLink="/login" *ngIf="!token"> Login</a></button>
-  <button mat-menu-item><a class="dropdown-item" routerLink="/profile"> Profile</a></button>
-</mat-menu>
-</div>
 
 
 
@@ -21,7 +24,6 @@
 
 
 
-               
-         
-     
+
+
 

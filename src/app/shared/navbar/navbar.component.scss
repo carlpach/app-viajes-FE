@@ -10,11 +10,35 @@
 .nav{
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  background: rgb(0, 59, 149);
-} h3{
+  padding: 10px 0px 10px 10px;
+  background: rgb(28,0,96);
+  background: linear-gradient(48deg, rgba(28,0,96,1) 0%, rgba(51,9,121,1) 52%, rgb(70, 0, 168) 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  align-items: center;
+} 
+
+h3{
+  font-size: 25px;
   color: white;
   margin: 6px;
+  font-weight: 900;
 }
 
+.mat-mdc-button.mat-unthemed {
+  --mdc-text-button-label-text-color: #fff;
+  font-size: 35px;
+  padding-bottom: 7px;
 
+}
+
+.perfil{
+  color: black;
+  border-radius: 50%;
+  border: none;
+  background: rgb(250, 107, 107);
+  font-weight: 600;
+  color: white;
+  padding: 2px;
+  width: 35px;
+  height: 35px;
+}

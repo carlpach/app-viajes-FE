@@ -1,3 +1,5 @@
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { environment } from '../app/environments/environment.local';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatMenuModule} from '@angular/material/menu';
@@ -13,7 +15,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -23,7 +25,14 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ReservaComponent } from './pages/reserva/reserva.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
+import { GoogleMapsModule } from '@angular/google-maps';
+import { EditRoomComponent } from './pages/edit-room/edit-room.component';
+import {MatSliderModule} from '@angular/material/slider'
+import { EditBookingComponent } from './pages/edit-booking/edit-booking.component';
+import { DetailBookingComponent } from './pages/detail-booking/detail-booking.component';
+import { GalleriaModule } from 'primeng/galleria';
 
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -37,7 +46,10 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
 
     ProfileComponent,
     ReservaComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    EditRoomComponent,
+    EditBookingComponent,
+    DetailBookingComponent,
 
   ],
 
@@ -47,16 +59,24 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatMenuModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    GoogleMapsModule,
+    MatSliderModule,
+    MatIconModule,
+    GalleriaModule
 
   ],
 
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

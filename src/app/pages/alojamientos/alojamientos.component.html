@@ -1,14 +1,67 @@
-<p>alojamientos works!</p>
 
-<div class="container">
-    <ul class="list">
-        <li class="itemlist" *ngFor="let alojamiento of alojamientosList" (click)="clickAlojamientoDetalle(alojamiento)">
-            <h3>{{alojamiento.name}}</h3>
-            <p>{{alojamiento.location}}</p>
-            <img src="{{alojamiento.mainImage}}" alt="{{alojamiento.name}}" />
-        </li>
-    </ul>
-    <div *ngIf="!alojamientosList" >no hay alojamientos, busca de nuevo</div>
-    <button routerLink="/addAlojamiento" *ngIf="token">Reservar</button>
+<div class="b-search-container">
+  <div class="b-search-container__city">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+    <div>{{ citySearched }} </div>
   </div>
-  
+  <div class="b-search-container__city b-search-container__city--darker">
+    
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="date_range"></mat-icon>
+    <div> {{ dateStartFormated }}   a   {{ dateEndFormated }}</div>
+    <div class="b-noches"> ({{ nightsSearched }} noches) </div>    
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+    <div> {{ peopleSearched }} personas </div>    
+  </div>
+
+</div>
+
+
+<div class="b-rangoPrecios"> De {{ valueDown }} € a {{ valueUp }} €
+</div> 
+
+<div class="b-filter">
+  <mat-slider class="" min="40" max="350" step="10" showTickMarks=false discrete=true  >
+    <input value="20" matSliderStartThumb [(ngModel)]="valueDown" (ngModelChange)="changeDown($event)">
+    <input value="350" matSliderEndThumb [(ngModel)]="valueUp" (ngModelChange)="changeUp($event)">
+
+  </mat-slider>
+  <button class="b-filter__button" (click)="clickFilter()">Filtrar</button>
+</div>
+
+
+<ul class="" *ngIf="alojamientosList.length > 0">
+  <li class="itemlist" (click)="onClickItem(alojamiento)" *ngFor="let alojamiento of (
+      filteredalojamientosList?.length? 
+      filteredalojamientosList 
+      : filteredalojamientosList?.length == 0? filteredalojamientosList : alojamientosList)">
+      <img class="ul__img" src="{{ alojamiento.images[0] }}" alt="{{ alojamiento.name }}" />
+      <div class="b-namePrice">
+        <div>{{alojamiento.name}}</div>
+        <div>
+          <span *ngFor="let star of generateStarsArray(alojamiento.level)" class="fa fa-star checked">
+          </span>
+          <span *ngFor="let star of generateNoStarsArray(alojamiento.level)" class="fa fa-star unchecked">
+          </span>        
+        </div>
+      </div>
+
+      <div>
+        <div>Desde</div>        
+        <div>{{ alojamiento.lowerPrice }} €/noche</div>        
+      </div>
+
+      <button class="b-button" (click)="clickAlojamientoDetalle( alojamiento )">Reservar</button>
+  </li>
+</ul>
+
+
+
+<h3 class="b-message" *ngIf="alojamientosList.length == 0" >Lo sentimos pero no hay alojamiento en {{ citySearched }} para esas fechas</h3>
+
+<h3 class="b-message" *ngIf="filteredalojamientosList?.length == 0" >Lo sentimos pero no hay alojamiento en {{ citySearched }} para ese rango de precios</h3>
+
+<div class="my-google-map">
+<google-map width="100%" height="100%" class="b-map" [options]="mapOptions">
+  <map-marker *ngFor="let alojamiento of alojamientosList"
+  [position]="alojamiento.location"></map-marker>
+</google-map>

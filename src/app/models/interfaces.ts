@@ -7,16 +7,16 @@ export interface AccommodationsI {
   _id: string,
   name: string,
   city: string,
+  lowerPrice: number,
   type: [],
   category: [],
-  level: [],
+  level: number,
   location: {
     lat: number,
     lng: number
   },
-  mainImage: string,
-  images: [],
-  rooms: [],
+  images: string[],
+  rooms: string[],
 }
 
 export interface RoomI {
@@ -25,8 +25,7 @@ export interface RoomI {
   description: string,
   features: [],
   price: number,
-  mainImage: string,
-  images: [],
+  images: string[],
 
 }
 
@@ -34,13 +33,16 @@ export interface BookingI {
   _id: string,
   bookingCode: number,
   name: string,
-  surname: string,
+  lastname: string,
   dateEntry: string,
   dateDeparture: string,
   nights: number,
+  people: number,
   timeCheckin: string,
+  nameAlojamiento: string,
   petitionCustomer: string,
   image: string,
+  price: number,
   room: string,
 
 }
